@@ -1,0 +1,46 @@
+<div class="titleheader">
+	
+		<div class="dropdown">
+			<a class="account" >
+				<span>My Account</span>
+			</a>
+			<div class="submenu" style="display: none; ">
+
+			  <ul class="root">
+				<li >
+				      <a href="#Dashboard" >Dashboard</a>
+				</li>
+
+	    
+			        <li >
+	      			      <a href="#Profile" >Profile</a>
+	    			</li>
+	   			<li >
+
+	      				<a href="#settings">Settings</a>
+	    			</li>
+	   
+
+	    			<li>
+	    				  <a href="#feedback">Send Feedback</a>
+	    			</li>
+
+
+
+	    			<li>
+	      				<a href="#signout">Sign Out</a>
+	    			</li>
+	  		</ul>
+		</div>
+	</div>
+	</div>
+		<div class="contents">
+		<div class="side_bar">
+			<div class="coordinator_sidebar">
+					
+			</div>
+			<a href="<?php echo base_url()?>coordinator/add_student">Add Student</a>
+			<a href="<?php echo base_url()?>coordinator/add_teacher">Add Teacher</a> 
+
+		</div>
+		
