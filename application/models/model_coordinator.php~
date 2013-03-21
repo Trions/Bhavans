@@ -16,9 +16,24 @@
 			$username_password['lgin_cat']=2;
 		        $this->db->insert('tbl_login',$username_password);
 		}
-		function register_student($student_info){
-		
+		function register_student($student_info){		
 			$this->db->insert('tbl_student_registration',$student_info);
 		}
+		
+		function register_school($school_info){
+		
+			$this->db->insert('tbl_school',$school_info);
+		}
+		
+		
+		function list_school(){
+			$query = $this->db->query('SELECT * FROM tbl_school');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		
 	}
 ?>
