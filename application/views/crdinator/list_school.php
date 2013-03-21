@@ -15,7 +15,7 @@
 		echo '<h1>' .$q->scl_name. '</h1>';
 		echo '</td>';
 		echo '<td>';
-		echo anchor('/coordinator/remove_teacher/'.$q->scl_id,'Delete');
+		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete');
 		echo '</td>';
 		echo '</tr>';
 
