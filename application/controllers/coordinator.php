@@ -130,7 +130,13 @@ class Coordinator extends CI_Controller{
 	function add_remedial(){
 	}
 	
-	function remove_teacher(){
+
+	function remove_teacher($id){
+		
+		$this->load->model('model_coordinator');
+		//$this->model_coordinator->register_school($id);
+	
+
 	}
 	function remove_student(){
 	}
@@ -139,4 +145,4 @@ class Coordinator extends CI_Controller{
 	function remove_remedial(){
 	}
 }
-
+?>

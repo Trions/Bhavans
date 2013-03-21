@@ -48,6 +48,27 @@ class Coordinator extends CI_Controller{
 		$this->model_coordinator->register_teacher($teacher_info);
 	
 	}
+	
+	function register_school(){
+		
+		$school_info['scl_id']=$this->input->post("school_id");
+		$school_info['scl_name']=$this->input->post("school_name");
+		$school_info['scl_ph']=$this->input->post("phone");
+		$school_info['scl_add']=$this->input->post("add");
+		
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->register_school($school_info);
+		
+	}
+	
+	
+	function list_school(){
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_school();
+			$this->load->view('crdinator/list_school',$data);
+		}
+	
+	
 	function home(){
 	
 	
@@ -97,22 +118,36 @@ class Coordinator extends CI_Controller{
 
 	}
 	function add_student(){
-	
-		
+			
 		$this->load->view('crdinator/add_stu.php');
+	}
+	
+	function add_school(){
+		$this->load->view('crdinator/add_school.php');
 	}
 	function add_parent(){
 	}
 	function add_remedial(){
 	}
 	
+<<<<<<< HEAD
 	function remove_teacher(){
+=======
+	function remove_teacher($id){
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->register_school($id);
+	
+>>>>>>> 817be748040a369b3c577e46c1518738ea4250fa
 	}
 	function remove_student(){
 	}
 	function remove_parent(){
 	}
 	function remove_remedial(){
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 817be748040a369b3c577e46c1518738ea4250fa
 	}
 }
 

@@ -34,7 +34,14 @@
 				}
 			return $data;
 			}
+
 		
+		}
+		
+		function remove_school($id){
+			$this->db->delete('mytable', array('id' => $id));
+
+		}
 	}
-}
+
 ?>
