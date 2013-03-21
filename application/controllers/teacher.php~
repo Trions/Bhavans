@@ -1,0 +1,28 @@
+<?php
+	class Teacher extends CI_Controller{
+		function __construct(){
+			parent::__construct();
+		}
+		function add_subject(){
+			$this->load->view('add_subject');
+		}
+		function add_student(){
+			$this->load->view('teacher/add_student');
+		}
+		
+		function register_subject(){
+		
+		$teacher_info['teacher_first_name']=$this->input->post("fname");
+		$teacher_info['teacher_last_name']=$this->input->post("lname");
+		$teacher_info['teacher_gender']=$this->input->post("gender");
+		$teacher_info['teacher_dob']=$this->input->post("day");
+		$teacher_info['teacher_address']=$this->input->post("address");
+		$teacher_info['teacher_nationality']=$this->input->post("nationality");
+		$teacher_info['teacher_photo']=$this->input->post("photo");
+		$teacher_info['teacher_phone']=$this->input->post("phone");
+		$teacher_info['teacher_email']=$this->input->post("email");
+		
+		$this->load->model('model_teacher');
+		$this->model_teacher->register_teacher($teacher_info);
+		}
+	} 
