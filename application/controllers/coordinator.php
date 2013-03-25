@@ -30,6 +30,8 @@ class Coordinator extends CI_Controller{
 		//$this->load->view('crdinator/reg_sucessfull',$stu_info);
 	
 	}
+	
+		
 	function register_teacher(){
 	
 	
@@ -62,10 +64,18 @@ class Coordinator extends CI_Controller{
 	}
 	
 	
+	
+	
 	function list_school(){
 			$this->load->model('model_coordinator');
 			$data['query']= $this->model_coordinator->list_school();
 			$this->load->view('crdinator/list_school',$data);
+		}
+		
+	function list_ref_students(){
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_ref_students();
+			$this->load->view('crdinator/list_ref_students',$data);
 		}
 	
 	
@@ -130,9 +140,11 @@ class Coordinator extends CI_Controller{
 	function add_remedial(){
 	}
 	
+	
+	
 	function remove_school($id){
 		$this->load->model('model_coordinator');
-		$this->model_coordinator->register_school($id);
+		$this->model_coordinator->delete_school($id);
 	
 	}
 	function remove_student(){
@@ -141,6 +153,11 @@ class Coordinator extends CI_Controller{
 	}
 	function remove_remedial(){
 	
+	}
+	function ref_student_details($name){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->ref_student_info($name);
+		$this->load->view('crdinator/ref_student_info',$data);
 	}
 }
 

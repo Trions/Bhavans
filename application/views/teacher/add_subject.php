@@ -21,6 +21,8 @@
 			<input type="reset" id="reset" name="reset" value="Reset"/>
 </li>
 </ul>	
-		</fieldset>		
+		</fieldset>	
+		
+		
 	</div>
 </div>

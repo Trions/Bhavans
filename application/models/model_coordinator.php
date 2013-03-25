@@ -36,8 +36,29 @@
 			}
 		}
 		
-		function remove_school($id){
-			$this->db->delete('mytable', array('id' => $id));
+		function list_ref_students(){
+			$query = $this->db->query('SELECT * FROM tbl_rem_referral');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+		
+		function ref_student_info($name){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_rem_referral', array('student_name' => $name));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+		
+		function delete_school($id){
+			$this->db->delete('tbl_school', array('scl_id' => $id));
 
 		}
 	}

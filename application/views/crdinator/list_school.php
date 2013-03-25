@@ -15,6 +15,9 @@
 		echo '<h1>' .$q->scl_name. '</h1>';
 		echo '</td>';
 		echo '<td>';
+		
+		//echo '<a href="remove_school/'.$q->scl_id.'">Delete</a>';
+		//echo '<a href="remove_school/'.$q->scl_id.'" onclick="returm confirm("Sure?");">Delete</a>';
 		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete');
 		echo '</td>';
 		echo '</tr>';
