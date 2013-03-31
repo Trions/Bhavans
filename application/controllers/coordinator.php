@@ -77,6 +77,16 @@ class Coordinator extends CI_Controller{
 			$data['query']= $this->model_coordinator->list_ref_students();
 			$this->load->view('crdinator/list_ref_students',$data);
 		}
+	function list_student(){
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_student();
+			$this->load->view('crdinator/list_student',$data);
+		}
+	function list_teacher(){
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_teacher();
+			$this->load->view('crdinator/list_teacher',$data);
+		}
 	
 	
 	function home(){
@@ -90,11 +100,7 @@ class Coordinator extends CI_Controller{
 	
 	}
 	
-	function list_student(){
-	}
 	
-	function list_teacher(){
-	}
 	
 	function list_remedial(){
 	}
@@ -120,8 +126,7 @@ class Coordinator extends CI_Controller{
 	function edit_remedial(){
 	}
 	
-	function edit_student(){
-	}
+	
 	function add_teacher(){
 		$this->load->view('crdinator/add_teacher.php');
 		
@@ -135,7 +140,8 @@ class Coordinator extends CI_Controller{
 	function add_school(){
 		$this->load->view('crdinator/add_school.php');
 	}
-	function add_parent(){
+	function add_parent(){$this->db->where('id', $id);
+		$this->db->update('mytable', $data); 
 	}
 	function add_remedial(){
 	}
@@ -147,17 +153,36 @@ class Coordinator extends CI_Controller{
 		$this->model_coordinator->delete_school($id);
 	
 	}
-	function remove_student(){
+	function remove_student($name){
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->delete_student($name);
+	}
+	function remove_teacher($name){
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->delete_teacher($name);
 	}
 	function remove_parent(){
 	}
 	function remove_remedial(){
 	
 	}
+	
 	function ref_student_details($name){
 		$this->load->model('model_coordinator');
 		$data['query']=$this->model_coordinator->ref_student_info($name);
 		$this->load->view('crdinator/ref_student_info',$data);
 	}
+	function list_student_info($name){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->list_student_info($name);
+		$this->load->view('crdinator/list_student_info',$data);
+	}
+
+	function list_teacher_info($fname){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->list_teacher_info($fname);
+		$this->load->view('crdinator/list_teacher_info',$data);
+	}
+
 }
 

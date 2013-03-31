@@ -24,6 +24,11 @@
 	
 			$this->load->view('teacher/add_report.php');
 		}
+
+		function add_evaluation(){
+	
+			$this->load->view('teacher/add_evaluation.php');
+		}
 		
 		function register_referral(){
 	
@@ -91,4 +96,24 @@
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_subject($teacher_info);
 		}
+		
+		function register_evaluation(){
+
+			$evaluation_info['stu_id']=$this->input->post("student_id");
+			$evaluation_info['reading']=$this->input->post("reading");
+			$evaluation_info['reading_compre']=$this->input->post("reading_comp");
+			$evaluation_info['spelling']=$this->input->post("spelling");
+			$evaluation_info['handwriting']=$this->input->post("hand_writing");
+			$evaluation_info['writen_exp']=$this->input->post("written_expression");
+			$evaluation_info['arith_math']=$this->input->post("arithmetic");
+			$evaluation_info['sub_content']=$this->input->post("subject_content");
+			$evaluation_info['remarks']=$this->input->post("remarks");
+			$evaluation_info['date']=$this->input->post("date");
+			
+			
+			$this->load->model('model_teacher');
+			$this->model_teacher->register_evaluation($evaluation_info);
+		}
+
+
 	} 
