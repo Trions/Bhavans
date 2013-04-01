@@ -4,16 +4,14 @@
 	<form name="add_student" id="add_student" method="post" action="<?php echo base_url()?>teacher/register_report">
 		<fieldset>
 		<ul>
-			<li>
+			<!--<li>
 				<label for="teacher_id">Teacher id</label>
 				<input type="text" id="teacher_id" name="teacher_id"/>
-			</li>
+			</li>-->
 			<li>
 				<label for="teacher_subject">Teacher Subject</label>
 				<input type="text" id="teacher_subject" name="teacher_subject"/>
 			</li>
-			
-			
 			
 			<li>
 				<label for="name">Student Name</label>
@@ -23,6 +21,22 @@
 				<label for="grade">Grade</label>
 				<input type="text" id="grade" name="grade"/>
 			</li>
+			
+			<li>
+				<label for="about_parent">View About Student Parent</label>
+				<span style="font-size:15">   </span>
+				<textarea id="about_parent" name="about_parent"></textarea>
+			</li><br>
+			
+			<li>
+				<label for="add_info">Additional Information</label>
+				<span style="font-size:15">   </span>
+				<textarea id="add_info" name="add_info"></textarea>
+			</li><br>
+			
+			
+			
+			
 			
 			<li>
 				<label for="behaviour">Class Room Behaviour</label>

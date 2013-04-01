@@ -77,6 +77,8 @@ class Coordinator extends CI_Controller{
 			$data['query']= $this->model_coordinator->list_ref_students();
 			$this->load->view('crdinator/list_ref_students',$data);
 		}
+		
+	
 	
 	
 	function home(){
@@ -159,5 +161,18 @@ class Coordinator extends CI_Controller{
 		$data['query']=$this->model_coordinator->ref_student_info($name);
 		$this->load->view('crdinator/ref_student_info',$data);
 	}
+	
+	function ref_student_report($name){
+	
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->ref_student_report($name);
+		$this->load->view('crdinator/ref_student_report',$data);
+	}
+	
+	
+	
+	
+	
+	
 }
 

@@ -10,18 +10,18 @@
 			</li>
 		
 			<li>
-				<label for="class">Class</label>
-				<input type="text" id="class" name="class"/>
+				<label for="grade">Grade</label>
+				<input type="text" id="grade" name="grade"/>
 			</li>
 			<li>
 			
 				<label for="school">School</label>
 				<input type="text" id="school" name="school"/>
 			</li>
-			<li>
+			<!--<li>
 				<label for="teacher_id">Referring Teacher id</label>
 				<input type="text" id="teacher_id" name="teacher_id"/>
-			</li>
+			</li>-->
 			<li>
 				<label for="referrig_reason">Reason For Referring</label>
 				<textarea id="referrig_reason" name="referrig_reason"> </textarea>

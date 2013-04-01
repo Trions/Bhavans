@@ -28,9 +28,10 @@
 		function register_referral(){
 	
 			$referral_info['student_name']=$this->input->post("name");
-			$referral_info['class']=$this->input->post("class");
+			$referral_info['grade']=$this->input->post("grade");
 			$referral_info['school']=$this->input->post("school");
-			$referral_info['teacher_id']=$this->input->post("teacher_id");
+			//$referral_info['teacher_id']=$this->input->post("teacher_id");
+			$referral_info['teacher_id']=$this->session->userdata('user_id');
 			$referral_info['reason_for_referring']=$this->input->post("referrig_reason");
 			$referral_info['fscr']=$this->input->post("fscr");
 			$referral_info['fd']=$this->input->post("fd");
@@ -61,8 +62,11 @@
 		
 		function register_report(){
 		
-			$report_info['teach_id']=$this->input->post("teacher_id");
+			//$report_info['teach_id']=$this->input->post("teacher_id");
+			$report_info['teach_id']=$this->session->userdata('user_id');
 			$report_info['teach_subject']=$this->input->post("teacher_subject");
+			$report_info['teach_view_o_stu_parnt']=$this->input->post("about_parent");
+			$report_info['cmt_on_addi_info']=$this->input->post("add_info");
 			$report_info['new_stu_name']=$this->input->post("name");
 			$report_info['new_stu_grade']=$this->input->post("grade");
 			$report_info['cls_rm_beha']=$this->input->post("behaviour");

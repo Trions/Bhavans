@@ -24,10 +24,12 @@ class Login extends CI_Controller{
 		else{
 			$this->load->model('usr_model');
 			$query=$this->usr_model->usr_login();
+			 
+
 			
 			if($query){
 					$this->load->library('session');
-					$u_data=array('user_name'=>$this->input->post('name'));
+					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id']);
 					$this->session->set_userdata($u_data);
 					if($query['lgin_cat']==1)
 						redirect('coordinator');

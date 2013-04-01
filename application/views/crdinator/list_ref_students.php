@@ -14,6 +14,12 @@
 		echo '</h1>';
 		echo '</td>';
 		
+		echo '<td>';
+		echo '<h5>';
+		echo anchor('/coordinator/ref_student_report/'.$q->student_name,'Class Teacher Report');
+		echo '</h5>';
+		echo '</td>';
+		
 		
 
 		
