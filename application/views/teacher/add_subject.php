@@ -10,15 +10,10 @@
 			foreach($query->result_array() as $row){
 				echo $row['teacher_id'];
 			}
-			}
+			}*/
 						
-			/*$query=$this->db->query('SELECT LAST_INSERT_ID() from tbl_teacher');
-			if($query->num_rows > 0){
-				foreach($query->result_array() as $row){
-					echo $row['LAST_INSERT_ID()'];
-				}}*/
-			$uman = $this->session->userdata('user_id');
-			echo $uman;
+			echo $this->session->userdata('user_id');
+			
 			
 			?>
 <ul>

@@ -29,7 +29,7 @@ class Login extends CI_Controller{
 			
 			if($query){
 					$this->load->library('session');
-					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id']);
+					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id'],'user_cat'=> $query['lgin_cat']);
 					$this->session->set_userdata($u_data);
 					if($query['lgin_cat']==1)
 						redirect('coordinator');

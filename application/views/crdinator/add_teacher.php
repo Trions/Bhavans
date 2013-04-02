@@ -32,8 +32,8 @@
 
 	<label for="school">School</label>
 	<?php 
-		echo '<select>';
-		echo '<option value="0">-- -- -- -</option>';
+		echo '<select name="school">';
+		//echo '<option value="0">-- -- -- -</option>';
 		foreach ($query as $q){
 		echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
 		

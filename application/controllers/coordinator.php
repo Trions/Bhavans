@@ -38,6 +38,7 @@ class Coordinator extends CI_Controller{
 		$teacher_info['teacher_first_name']=$this->input->post("fname");
 		$teacher_info['teacher_last_name']=$this->input->post("lname");
 		$teacher_info['teacher_gender']=$this->input->post("gender");
+		$teacher_info['teacher_school']=$this->input->post("school");
 		$insertdate =$this->input->post("day");
 		$teacher_info['teacher_dob']=date($insertdate);
 		$teacher_info['teacher_address']=$this->input->post("address");
