@@ -125,12 +125,14 @@ class Coordinator extends CI_Controller{
 	function edit_student(){
 	}
 	function add_teacher(){
-		$this->load->view('crdinator/add_teacher.php');
+		$this->load->model('model_coordinator');
+		$data['query']= $this->model_coordinator->add_teacher_get();
+		$this->load->view('crdinator/add_teacher.php',$data);
 		
 
 	}
 	function add_student(){
-			
+		
 		$this->load->view('crdinator/add_stu.php');
 	}
 	

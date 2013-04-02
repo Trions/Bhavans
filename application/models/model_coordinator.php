@@ -72,5 +72,18 @@
 			$this->db->delete('tbl_school', array('scl_id' => $id));
 
 		}
+
+
+	function add_teacher_get(){
+		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+	}
+
+	
 	}
 ?>

@@ -23,16 +23,27 @@
 				
 			
 			 
-			        <input type="radio" id="gender_female" value="0" name="gender"  />
+			   <input type="radio" id="gender_female" value="0" name="gender"  />
 				<label for="gender_female">Female</label>
 				
-			</li>
-<br>
-<li>
-</li>
+</li><br>
+
 <li>
 
-			
+	<label for="school">School</label>
+	<?php 
+		echo '<select>';
+		echo '<option value="0">-- -- -- -</option>';
+		foreach ($query as $q){
+		echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
+		
+		}
+		echo '</select>'
+	?>
+	
+</li>	
+
+<li>
 			<label for="dob"> Date of Birth</label>
 			<input type="text" id="dob" name="dob"/>
 </li>
