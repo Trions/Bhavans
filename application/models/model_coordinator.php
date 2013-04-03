@@ -26,6 +26,16 @@
 			$this->db->insert('tbl_school',$school_info);
 		}
 		
+		function update_student($stu_info){
+			$this->db->where('stu_id', $stu_info['stu_id']);
+			$this->db->update('tbl_student_registration', $stu_info); 
+		}
+		
+		function update_school($school_info){
+			$this->db->where('scl_id', $school_info['scl_id']);
+			$this->db->update('tbl_school', $school_info); 
+		}
+		
 		
 		function list_school(){
 			$query = $this->db->query('SELECT * FROM tbl_school');
@@ -117,18 +127,6 @@
 
 
 
-	function add_teacher_get(){
-		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
-			if($query->num_rows > 0){
-				foreach($query->result() as $row){
-					$data[] = $row;
-				}
-			return $data;
-			}
-	}
-
-	
-
 		function delete_student($name){
 			$this->db->delete('tbl_student_registration', array('stu_name' => $name));
 
@@ -138,7 +136,35 @@
 
 		}
 		
+		function add_teacher_get(){
+		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
 		
+		function edit_student($id){
+			$query = $this->db->get_where('tbl_student_registration', array('stu_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
+		
+		function edit_school($id){
+			$query = $this->db->get_where('tbl_school', array('scl_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
 		
 
 

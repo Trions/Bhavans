@@ -10,17 +10,17 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		//echo '<h1>' .$q->scl_id. '</h1>';
 		
 		echo '<tr>';
-		echo '<td>';
+		echo '<td><h4>';
 		//echo '<h1>';
 		echo anchor('/coordinator/list_student_info/'.$q->stu_name,$q->stu_name);
-		echo '</td>';
-		echo '<td>';	
+		echo '</h4></td>';
+		echo '<td><h4>';	
 		echo anchor('/coordinator/remove_student/'.$q->stu_name,'Delete');
 		//echo '</h1>';
-		echo '</td>';
-		echo '<td>';
-		echo anchor('/coordinator/edit_student/'.$q->stu_name,'Edit');
-		echo '</td>';
+		echo '</h4></td>';
+		echo '<td><h4>';
+		echo anchor('/coordinator/edit_student/'.$q->stu_id,'Update Information');
+		echo '</h4></td>';
 		echo '</tr>';
 		
 		

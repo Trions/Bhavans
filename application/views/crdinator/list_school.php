@@ -12,13 +12,21 @@
 		
 		echo '<tr>';
 		echo '<td>';
-		echo '<h1>' .$q->scl_id. '</h1>';
+		echo '<h3>' .$q->scl_id. '</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h1>' .$q->scl_name. '</h1>';
+		echo '<h3>' .$q->scl_name. '</h3>';
 		echo '</td>';
 		echo '<td>';
-		
+		echo '<h3>' .$q->scl_ph. '</h3>';
+		echo '</td>';
+		echo '<td>';
+		echo '<h3>' .$q->scl_add. '</h3>';
+		echo '</td>';
+		echo '<td>';
+		echo anchor('/coordinator/edit_school/'.$q->scl_id,'Update Information');
+		echo '</td>';
+		echo '<td>';
 		//echo '<a href="remove_school/'.$q->scl_id.'">Delete</a>';
 		//echo '<a href="remove_school/'.$q->scl_id.'" onclick="returm confirm("Sure?");">Delete</a>';
 		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete');

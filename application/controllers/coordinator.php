@@ -123,15 +123,53 @@ class Coordinator extends CI_Controller{
 	function display_parent(){
 	}
 	
-	function edit_teacher(){
+	function edit_student($id){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->edit_student($id);
+		$this->load->view('crdinator/update_student',$data);
 	}
 	
-	function edit_parent(){
+	function edit_school($id){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->edit_school($id);
+		$this->load->view('crdinator/update_school',$data);
 	}
 	
-	function edit_remedial(){
+	function update_student($id){
+		$stu_info['stu_rollno']=$this->input->post("rollno");
+		$stu_info['stu_name']=$this->input->post("name");
+		$stu_info['stu_grade']=$this->input->post("grade");
+		
+		$insertdate =$this->input->post("dob");
+		$ins = date($insertdate);
+		$stu_info['stu_dob']=$ins;//$this->input->post("dob");
+		$stu_info['stu_gender']=$this->input->post("gender");
+		$stu_info['stu_father_name']=$this->input->post("fname");
+		$stu_info['stu_mother_name']=$this->input->post("mname");
+		$stu_info['stu_address']=$this->input->post("addtext");
+		$stu_info['stu_ph_res']=$this->input->post("landphone");
+		$stu_info['stu_ph_off']=$this->input->post("officephone");
+		$stu_info['stu_ph_mob']=$this->input->post("mobile");
+		$stu_info['stu_id']=$id;
+	
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->update_student($stu_info);
+		redirect('coordinator/list_student');
+	
 	}
 	
+	function update_school($id){
+		//$school_info['oscl_id']=$id;
+		$school_info['scl_id']=$id;
+		$school_info['scl_name']=$this->input->post("school_name");
+		$school_info['scl_ph']=$this->input->post("phone");
+		$school_info['scl_add']=$this->input->post("add");
+		
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->update_school($school_info);
+		redirect('coordinator/list_school');
+		
+	}
 	
 	function add_teacher(){
 		$this->load->model('model_coordinator');
@@ -189,10 +227,6 @@ class Coordinator extends CI_Controller{
 		$data['query']=$this->model_coordinator->ref_student_report($name);
 		$this->load->view('crdinator/ref_student_report',$data);
 	}
-	
-	
-	
-	
 	
 	
 
