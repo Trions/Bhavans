@@ -47,6 +47,29 @@
 			}
 		}
 		
+<<<<<<< HEAD
+=======
+		 function list_student(){
+			$query = $this->db->query('SELECT * FROM tbl_student_registration');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+
+		}		
+		function list_teacher(){
+			$query = $this->db->query('SELECT * FROM tbl_teacher');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 		function ref_student_info($name){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
 			$query = $this->db->get_where('tbl_rem_referral', array('student_name' => $name));
@@ -57,9 +80,16 @@
 			return $data;
 			}
 		}
+<<<<<<< HEAD
 		
 		function ref_student_report($name){
 		 	$query = $this->db->get_where('tbl_teacher_report', array('new_stu_name' => $name));
+=======
+
+		function list_student_info($name){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_student_registration', array('stu_name' => $name));
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -67,6 +97,7 @@
 			return $data;
 			}
 		}
+<<<<<<< HEAD
 		
 		function delete_school($id){
 			$this->db->delete('tbl_school', array('scl_id' => $id));
@@ -76,14 +107,36 @@
 
 	function add_teacher_get(){
 		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
+=======
+
+		function list_teacher_info($fname){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_teacher', array('teacher_first_name' => $fname));
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
 				}
 			return $data;
 			}
+<<<<<<< HEAD
 	}
 
 	
+=======
+		}
+		
+		function delete_school($id){
+			$this->db->delete('tbl_school', array('scl_id' => $id));
+
+		}
+		function delete_student($name){
+			$this->db->delete('tbl_student_registration', array('stu_name' => $name));
+
+		}
+		
+		
+
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 	}
 ?>

@@ -26,7 +26,7 @@
 			   <input type="radio" id="gender_female" value="0" name="gender"  />
 				<label for="gender_female">Female</label>
 				
-</li><br>
+</li>
 
 <li>
 

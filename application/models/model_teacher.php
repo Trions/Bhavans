@@ -16,4 +16,9 @@ class Model_teacher extends CI_Model{
 	function register_report($report_info){
 		$this->db->insert('tbl_teacher_report',$report_info);
 	}
+	
+		function register_evaluation($evaluation_info){
+		$this->db->insert('tbl_coun_inst_obj_act',$evaluation_info);
+	}
+
 }

@@ -26,13 +26,13 @@
 				<label for="about_parent">View About Student Parent</label>
 				<span style="font-size:15">   </span>
 				<textarea id="about_parent" name="about_parent"></textarea>
-			</li><br>
+			</li>
 			
 			<li>
 				<label for="add_info">Additional Information</label>
 				<span style="font-size:15">   </span>
 				<textarea id="add_info" name="add_info"></textarea>
-			</li><br>
+			</li>
 			
 			
 			

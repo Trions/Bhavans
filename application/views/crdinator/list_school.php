@@ -2,6 +2,8 @@
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
 <?php
+ if($query==0){echo '<h3> No School to display </h3>';}
+ else{
  echo '<table border=1>';
  
  foreach ($query as $q)
@@ -26,7 +28,8 @@
 		
 		
 	}
- echo '</table>'
+ echo '</table>';
+ 	}
 
 
  /*

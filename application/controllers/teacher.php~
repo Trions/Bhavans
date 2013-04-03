@@ -28,10 +28,16 @@
 		function register_referral(){
 	
 			$referral_info['student_name']=$this->input->post("name");
+<<<<<<< HEAD
 			$referral_info['grade']=$this->input->post("grade");
 			$referral_info['school']=$this->input->post("school");
 			//$referral_info['teacher_id']=$this->input->post("teacher_id");
 			$referral_info['teacher_id']=$this->session->userdata('user_id');
+=======
+			$referral_info['class']=$this->input->post("class");
+			$referral_info['school']=$this->input->post("school");
+			$referral_info['teacher_id']=$this->input->post("teacher_id");
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			$referral_info['reason_for_referring']=$this->input->post("referrig_reason");
 			$referral_info['fscr']=$this->input->post("fscr");
 			$referral_info['fd']=$this->input->post("fd");
@@ -57,17 +63,25 @@
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_referral($referral_info);
+<<<<<<< HEAD
 			redirect('teacher/add_referral');
+=======
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 	
 		}
 		
 		function register_report(){
 		
+<<<<<<< HEAD
 			//$report_info['teach_id']=$this->input->post("teacher_id");
 			$report_info['teach_id']=$this->session->userdata('user_id');
 			$report_info['teach_subject']=$this->input->post("teacher_subject");
 			$report_info['teach_view_o_stu_parnt']=$this->input->post("about_parent");
 			$report_info['cmt_on_addi_info']=$this->input->post("add_info");
+=======
+			$report_info['teach_id']=$this->input->post("teacher_id");
+			$report_info['teach_subject']=$this->input->post("teacher_subject");
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			$report_info['new_stu_name']=$this->input->post("name");
 			$report_info['new_stu_grade']=$this->input->post("grade");
 			$report_info['cls_rm_beha']=$this->input->post("behaviour");
@@ -85,7 +99,10 @@
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_report($report_info);
+<<<<<<< HEAD
 			redirect('teacher/add_report');
+=======
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			
 		}
 		
@@ -96,6 +113,9 @@
 				
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_subject($teacher_info);
+<<<<<<< HEAD
 			redirect('teacher/add_subjet');
+=======
+>>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 		}
 	} 

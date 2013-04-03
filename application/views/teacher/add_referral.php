@@ -25,32 +25,34 @@
 			<li>
 				<label for="referrig_reason">Reason For Referring</label>
 				<textarea id="referrig_reason" name="referrig_reason"> </textarea>
-			</li><br>
+			</li>
 			
 				<label>               BEHAVIOUR                </label>
 			
-			<br><br>
+			<br>
 			
 			<li>
-				<label> Follows School and Classroom Rules</label>				
+				<label> Follows School and Classroom Rules</label>	
+				</li><li>			
 				<input type="radio" id="yes" value="1" name="fscr"/>
 				<label for="yes">Yes</label>
 				<input type="radio" id="no" value="2" name="fscr"  />
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			
 			<li>
-				<label> Follows Directions</label>				
+				<label> Follows Directions</label>
+				</li><li>			
 				<input type="radio" id="yes" value="1" name="fd"/>
 				<label for="yes">Yes</label>
 				<input type="radio" id="no" value="2" name="fd"  />
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Comes Prepared for Class</label>				
@@ -60,7 +62,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Listens Attentively</label>				
@@ -70,7 +72,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Participates in Class Activities</label>				
@@ -80,7 +82,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Works Without Disturbing Others</label>				
@@ -90,7 +92,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Completes Work in Assigned Time</label>				
@@ -100,7 +102,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Completes Homework Assignments</label>				
@@ -110,7 +112,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br><br>
+			
 			
 			<li>
 				<label> Shows Effort to do Best Work</label>				
@@ -120,7 +122,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Works Cooperatively With Others</label>				
@@ -130,7 +132,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Takes Care of Personal Property</label>				
@@ -140,7 +142,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Takes Care of School Property</label>				
@@ -150,7 +152,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Respect Others and is Courteous</label>				
@@ -160,7 +162,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Practices Self Control</label>				
@@ -170,7 +172,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Respects Authority</label>				
@@ -180,7 +182,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br>
+			
 			
 			<li>
 				<label> Behaves Appropriately in Play Ground</label>				
@@ -190,7 +192,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br><br>
+			
 			
 			<li>
 				<label> Behaves Appropriately in Co-Curricular Activity Room</label>				
@@ -200,7 +202,7 @@
 				<label for="no">No</label>
 				
 			</li>
-			<br><br><br><br><br>
+			
 			
 			<li>
 				<label for="remarks">Remarks</label>

@@ -31,7 +31,7 @@
 				<label for="gender_female">Female</label>
 				
 			</li>
-			<br>
+			
 			<li>
 				<label for="fname">Father's Name</label>
 				<input type="text" id="fname" name="fname"/>
