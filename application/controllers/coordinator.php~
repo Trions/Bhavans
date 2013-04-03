@@ -153,6 +153,7 @@ class Coordinator extends CI_Controller{
 	function remove_school($id){
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->delete_school($id);
+		redirect('coordinator/list_school');
 	
 	}
 	function remove_student(){

@@ -57,6 +57,7 @@
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_referral($referral_info);
+			redirect('teacher/add_referral');
 	
 		}
 		
@@ -84,6 +85,7 @@
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_report($report_info);
+			redirect('teacher/add_report');
 			
 		}
 		
@@ -94,5 +96,6 @@
 				
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_subject($teacher_info);
+			redirect('teacher/add_subject');
 		}
 	} 
