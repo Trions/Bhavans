@@ -15,9 +15,15 @@ class Coordinator extends CI_Controller{
 		$stu_info['stu_name']=$this->input->post("name");
 		$stu_info['stu_grade']=$this->input->post("grade");
 		
-		$insertdate =$this->input->post("dob");
-		$ins = date($insertdate);
-		$stu_info['stu_dob']=$ins;//$this->input->post("dob");
+		//$insertdate =$this->input->post("dob");
+		$dat=$_POST['l1'];
+		$mnth=$_POST['l2'];
+		$yr=$_POST['l3'];
+		$dt=$yr."/".$mnth."/".$dat;		
+
+
+		//$ins = date($insertdate);
+		$stu_info['stu_dob']=$dt;//$this->input->post("dob");
 		$stu_info['stu_gender']=$this->input->post("gender");
 		$stu_info['stu_father_name']=$this->input->post("fname");
 		$stu_info['stu_mother_name']=$this->input->post("mname");
@@ -48,7 +54,7 @@ class Coordinator extends CI_Controller{
 		
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_teacher($teacher_info);
-	
+		echo "<script>alert('Updated...')";
 	}
 	
 	function register_school(){
@@ -95,9 +101,11 @@ class Coordinator extends CI_Controller{
 	
 	}
 	
-	function list_parent(){
+	function list_subject(){
 	
-	
+		$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_subject();
+			$this->load->view('crdinator/list_subject',$data);
 	}
 	
 	
