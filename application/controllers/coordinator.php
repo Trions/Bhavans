@@ -28,6 +28,7 @@ class Coordinator extends CI_Controller{
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_student($stu_info);
 		//$this->load->view('crdinator/reg_sucessfull',$stu_info);
+		redirect('coordinator/add_student');
 	
 	}
 	
@@ -39,7 +40,7 @@ class Coordinator extends CI_Controller{
 		$teacher_info['teacher_last_name']=$this->input->post("lname");
 		$teacher_info['teacher_gender']=$this->input->post("gender");
 		$teacher_info['teacher_school']=$this->input->post("school");
-		$insertdate =$this->input->post("day");
+		$insertdate =$this->input->post("dob");
 		$teacher_info['teacher_dob']=date($insertdate);
 		$teacher_info['teacher_address']=$this->input->post("address");
 		$teacher_info['teacher_nationality']=$this->input->post("nationality");
@@ -49,6 +50,7 @@ class Coordinator extends CI_Controller{
 		
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_teacher($teacher_info);
+		redirect('coordinator/add_teacher');
 	
 	}
 	
@@ -61,6 +63,7 @@ class Coordinator extends CI_Controller{
 		
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_school($school_info);
+		redirect('coordinator/add_school');
 		
 	}
 	
