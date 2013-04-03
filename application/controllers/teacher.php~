@@ -1,0 +1,23 @@
+<?php
+	class Teacher extends CI_Controller{
+		function __construct(){
+			parent::__construct();
+		}
+		function index(){
+			$this->load->view('teacher/Home.php');
+		}
+		function add_subject(){
+		
+			$this->load->view('teacher/add_subject');
+		}
+		function add_student(){
+			$this->load->view('teacher/add_student');
+		}
+		
+		function register_subject(){
+			$subject_info['subject_name']=$this->input->post("subjectname");
+			$subject_info['subject_totalmark']=$this->input->post("totalmark");
+			$this->load->model('model_teacher');
+			$this->subjectadd_model->register_subject($subject_info);
+		}
+	} 

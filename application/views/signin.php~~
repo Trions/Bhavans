@@ -1,0 +1,15 @@
+<html>
+<head>
+This is the heading of bullshit
+</head>
+<title>
+Hai
+</title>
+<body>
+<br>
+The sign in was successfull<?php>echo $this->session->userdata('user_name');
+  ?>
+ljd
+
+</body>
+</html>
