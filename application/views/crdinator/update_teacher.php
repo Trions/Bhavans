@@ -39,42 +39,42 @@
 	<label for="school">School</label>
 	 
 		<select name="school">';
-		
+		//echo '<option value="'.$q->teacher_school.'">'.$q->teacher_school.'</option>';
 		foreach ($query2 as $q2){
 		echo '<option value="'.$q2->scl_id.'">'.$q2->scl_name.'</option>';
 		
 		}
 		echo '</select>';
 	
-	
+		echo '   *';
 		echo '</li>	
 
 		<li>
 			<label for="dob"> Date of Birth</label>
-			<input type="text" id="dob" name="dob"/>
+			<input type="text" id="dob" name="dob" value="'.$q->teacher_dob.'"/>
 		</li>
 		<li>			
 
 			<label for="addtext">Address</label>
-			<textarea id="addtext" name="address"> </textarea>
+			<textarea id="addtext" name="address">'.$q->teacher_address.' </textarea>
 		</li>
 		<li>
 			<label for="nat">Nationality</label>
-			<input type="text" id="nat" name="nationality"/>
+			<input type="text" id="nat" name="nationality" value="'.$q->teacher_nationality.'"/>
 		</li>
-		<li>		
+		<!--<li>		
 			<label for="photo">Photo</label>
 			<input type="file" id="photo" name="photo"/>
-		</li>
+		</li>-->
 		<li>			
 			
 	
 			<label for="ph">Phone</label>
-			<input type="text" id="ph" name="phone"/>
+			<input type="text" id="ph" name="phone" value="'.$q->teacher_phone.'"/>
 		</li>
 		<li>
 			<label for="email">Email</label>
-			<input type="text" id="email" name="email"/>
+			<input type="text" id="email" name="email" value="'.$q->teacher_email.'"/>
 		</li>
 		<li>			
 			<button type="submit" value="Submit">Update</button>

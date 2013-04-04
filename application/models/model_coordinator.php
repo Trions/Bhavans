@@ -36,6 +36,11 @@
 			$this->db->update('tbl_school', $school_info); 
 		}
 		
+		function update_teacher($teacher_info){
+			$this->db->where('teacher_id', $teacher_info['teacher_id']);
+			$this->db->update('tbl_teacher', $teacher_info); 
+		}
+		
 		
 		function list_school(){
 			$query = $this->db->query('SELECT * FROM tbl_school');
@@ -77,9 +82,9 @@
 			}
 		}
 
-		function ref_student_info($name){
+		function ref_student_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_rem_referral', array('student_name' => $name));
+			$query = $this->db->get_where('tbl_rem_referral', array('sl_no' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -110,8 +115,8 @@
 			}
 		}
 		
-		function ref_student_report($name){
-		 	$query = $this->db->get_where('tbl_teacher_report', array('new_stu_name' => $name));
+		function ref_student_report($id){
+		 	$query = $this->db->get_where('tbl_teacher_report', array('sl_no' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -133,6 +138,11 @@
 		}
 		function delete_teacher($name){
 			$this->db->delete('tbl_teacher', array('teacher_first_name' => $name));
+
+		}
+		
+		function delete_ref_student($id){
+			$this->db->delete('tbl_rem_referral', array('sl_no' => $id));
 
 		}
 		

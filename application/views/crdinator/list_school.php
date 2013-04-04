@@ -4,8 +4,15 @@
 <?php
  if($query==0){echo '<h3> No School to display </h3>';}
  else{
- echo '<table border=1>';
- 
+ echo '<tittle>Schools</tittle>';
+ echo '<table border=0 cellspacing=25>';
+ echo '<tr>
+ 	<th><h3>School ID</h3></th>
+ 	<th><h3>School Name</h3></th>
+ 	<th><h3>School Phone</h3></th>
+ 	<th><h3>School Address</h3></th>
+ 	<th><h3>Option</h3></th>
+ 	</tr>';
  foreach ($query as $q)
  	{
 		//echo '<h1>' .$q->scl_id. '</h1>';

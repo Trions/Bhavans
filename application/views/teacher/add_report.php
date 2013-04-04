@@ -15,7 +15,15 @@
 			
 			<li>
 				<label for="name">Student Name</label>
-				<input type="text" id="name" name="name"/>
+				<?php 
+					echo '<select name="name">';
+					//echo '<option value="0">-- -- -- -</option>';
+					foreach ($query as $q){
+					echo '<option value="'.$q->stu_id.'">'.$q->stu_name.'</option>';
+		
+					}
+					echo '</select>'
+				?>
 			</li>
 			<li>
 				<label for="grade">Grade</label>

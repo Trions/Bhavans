@@ -16,7 +16,15 @@
 			<li>
 			
 				<label for="school">School</label>
-				<input type="text" id="school" name="school"/>
+	<?php 
+		echo '<select name="school">';
+		//echo '<option value="0">-- -- -- -</option>';
+		foreach ($query as $q){
+		echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
+		
+		}
+		echo '</select>'
+	?>
 			</li>
 			<!--<li>
 				<label for="teacher_id">Referring Teacher id</label>

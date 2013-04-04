@@ -178,6 +178,25 @@ class Coordinator extends CI_Controller{
 		
 	}
 	
+	function update_teacher($id){
+		$teacher_info['teacher_first_name']=$this->input->post("fname");
+		$teacher_info['teacher_last_name']=$this->input->post("lname");
+		$teacher_info['teacher_gender']=$this->input->post("gender");
+		$teacher_info['teacher_school']=$this->input->post("school");
+		$insertdate =$this->input->post("dob");
+		$teacher_info['teacher_dob']=date($insertdate);
+		$teacher_info['teacher_address']=$this->input->post("address");
+		$teacher_info['teacher_nationality']=$this->input->post("nationality");
+		$teacher_info['teacher_photo']=$this->input->post("photo");
+		$teacher_info['teacher_phone']=$this->input->post("phone");
+		$teacher_info['teacher_email']=$this->input->post("email");
+		$teacher_info['teacher_id']=$id;
+		
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->update_teacher($teacher_info);
+		redirect('coordinator/list_teacher');	
+	}
+	
 	function add_teacher(){
 		$this->load->model('model_coordinator');
 		$data['query']= $this->model_coordinator->add_teacher_get();
@@ -215,23 +234,30 @@ class Coordinator extends CI_Controller{
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->delete_teacher($name);
 	}
+	
+	function remove_ref_student($id){
+		$this->load->model('model_coordinator');
+		$this->model_coordinator->delete_ref_student($id);
+		redirect('coordinator/list_ref_students');
+	}
+	
 	function remove_parent(){
 	}
 	function remove_remedial(){
 	
 	}
 	
-	function ref_student_details($name){
+	function ref_student_details($id){
 		$this->load->model('model_coordinator');
-		$data['query']=$this->model_coordinator->ref_student_info($name);
+		$data['query']=$this->model_coordinator->ref_student_info($id);
 		$this->load->view('crdinator/ref_student_info',$data);
 	}
 
 	
-	function ref_student_report($name){
+	function ref_student_report($id){
 	
 		$this->load->model('model_coordinator');
-		$data['query']=$this->model_coordinator->ref_student_report($name);
+		$data['query']=$this->model_coordinator->ref_student_report($id);
 		$this->load->view('crdinator/ref_student_report',$data);
 	}
 	

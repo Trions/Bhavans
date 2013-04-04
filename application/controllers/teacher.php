@@ -16,13 +16,15 @@
 		}
 		
 		function add_referral(){
-	
-			$this->load->view('teacher/add_referral.php');
+			$this->load->model('model_teacher');
+			$data['query']= $this->model_teacher->add_referral_get();
+			$this->load->view('teacher/add_referral.php',$data);
 		}
 		
 		function add_report(){
-	
-			$this->load->view('teacher/add_report.php');
+			$this->load->model('model_teacher');
+			$data['query']= $this->model_teacher->add_report_get();
+			$this->load->view('teacher/add_report.php',$data);
 		}
 
 		function add_evaluation(){
