@@ -31,7 +31,7 @@
 			<button type="submit" value="Submit">Update</button>
   			</li>
 			
-			
+		</ul>	
 		</fieldset>	
 		</form>';
 		}

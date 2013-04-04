@@ -8,14 +8,19 @@
 		//echo '<h1>' .$q->scl_id. '</h1>';
 		
 		echo '<tr>';
-		echo '<td>';
+		echo '<td><h4>';
 		//echo '<h1>';
 		echo anchor('/coordinator/list_teacher_info/'.$q->teacher_first_name,$q->teacher_first_name);
-		echo '</td>';
-		echo '<td>';	
+		echo '</h4></td>';
+		echo '<td><h4>';	
 		echo anchor('/coordinator/remove_teacher/'.$q->teacher_first_name,'Delete');		
 		//echo '</h1>';
-		echo '</td>';
+		echo '</h4></td>';
+		echo '<td><h4>';
+		echo anchor('/coordinator/edit_teacher/'.$q->teacher_id,'Update Information');
+		echo '</h4></td>';
+		
+		echo '</tr>';
 		
 		
 

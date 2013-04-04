@@ -166,6 +166,15 @@
 			}		
 		}
 		
+		function edit_teacher($id){
+			$query = $this->db->get_where('tbl_teacher', array('teacher_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
 
 
 	}

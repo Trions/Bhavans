@@ -113,6 +113,10 @@ div.submenu
  .main_content a:hover{
  	background:#155FB0;
  	}
+ .main_content table{
+ 	padding: 20px;
+ 	
+ 	}
 
 	
 a.account {

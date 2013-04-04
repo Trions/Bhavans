@@ -135,6 +135,13 @@ class Coordinator extends CI_Controller{
 		$this->load->view('crdinator/update_school',$data);
 	}
 	
+	function edit_teacher($id){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->edit_teacher($id);
+		$data['query2']= $this->model_coordinator->add_teacher_get();
+		$this->load->view('crdinator/update_teacher',$data);
+	}
+	
 	function update_student($id){
 		$stu_info['stu_rollno']=$this->input->post("rollno");
 		$stu_info['stu_name']=$this->input->post("name");
