@@ -33,12 +33,12 @@
 
 
 
-	<!--
+	
 Date:<input type="text" name="edit1" id="edit1" datepicker="tr" datepicker_format="YYYY-MM-DD">
 
+<!-- 
 
 
--->
         
   <select id="l1" name="l1">
 	<?php	
@@ -72,7 +72,7 @@ Date:<input type="text" name="edit1" id="edit1" datepicker="tr" datepicker_forma
   </li>
 
 
-
+-->
 
 
 

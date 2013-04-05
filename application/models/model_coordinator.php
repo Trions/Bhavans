@@ -16,6 +16,9 @@
 			$username_password['lgin_cat']=2;
 			$username_password['lgin_id'] = mysql_insert_id();
 		        $this->db->insert('tbl_login',$username_password);
+			echo "<script>alert('Inserted Sucessfully...');
+			
+			</script>";
 		}
 		function register_student($student_info){		
 			$this->db->insert('tbl_student_registration',$student_info);
@@ -78,9 +81,23 @@
 				foreach($query->result() as $row){
 					$data[] = $row;
 				}
+
 			return $data;
 			}
 		}
+		function list_subject(){
+			$query=$this->db->query('select * from tbl_subject_detail');
+			if($query->num_rows>0){
+			foreach ($query->result() as $row){
+				$data[]= $row;
+			}
+
+	 		return $data;
+		}
+
+	
+
+	}
 
 		function ref_student_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
