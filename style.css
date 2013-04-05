@@ -110,6 +110,7 @@ div.submenu
  .main_content a{
  	
 	text-decoration: none;
+	color :blue;
  	}
  .main_content a:hover{
  	background:#155FB0;

@@ -113,6 +113,7 @@ div.submenu
  	}
  .main_content a:hover{
  	background:#155FB0;
+ 	color :white;
  	}
  .main_content table{
  	
