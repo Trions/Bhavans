@@ -73,6 +73,7 @@ div.submenu
 .side_bar a:hover{
    background:#155FB0;
    text-decoration:none;
+   color :white;
 
 }
 .side_bar a:active{
@@ -112,6 +113,7 @@ div.submenu
  	}
  .main_content a:hover{
  	background:#155FB0;
+ 	color :white;
  	}
  .main_content table{
  	
@@ -172,13 +174,13 @@ a.account {
 .title_bar{
 
  	position: relative;
- 	background: ;
+ 	background-color:#155FB0;
  	text-align: center;
  	min-width: 100%;
  	height:70;
  	overflow:auto;
  	border:thick;
- 	background: url(icons/athena_.png)  no-repeat;
+ 	
  	background-position:center;
  	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
  }

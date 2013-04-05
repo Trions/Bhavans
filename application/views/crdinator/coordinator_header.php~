@@ -57,7 +57,7 @@ $(".account").attr('id', '');
 <body>
 <div class="container">
 	<div class="title_bar">
-				Athena
+				<h2>Athena</h2>
 				<br>
 	</div>
 	
