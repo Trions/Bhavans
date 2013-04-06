@@ -5,10 +5,6 @@
 	<form name="add_student" id="add_student" method="post" action="<?php echo base_url()?>teacher/register_report">
 		<fieldset>
 		<ul>
-			<!--<li>
-				<label for="teacher_id">Teacher id</label>
-				<input type="text" id="teacher_id" name="teacher_id"/>
-			</li>-->
 			<li>
 				<label for="teacher_subject">Teacher Subject</label>
 				<input type="text" id="teacher_subject" name="teacher_subject"/>
