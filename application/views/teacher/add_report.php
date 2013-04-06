@@ -1,6 +1,7 @@
 <?php $this->load->view('teacher/teacher_header.php');?>
 <?php $this->load->view('teacher/teacher_sidebar.php');?>
 	<div class="main_content">
+	<div class="s_main_content">
 	<form name="add_student" id="add_student" method="post" action="<?php echo base_url()?>teacher/register_report">
 		<fieldset>
 		<ul>
@@ -114,5 +115,6 @@
 			
 		</fieldset>		
 	</form>
+	</div>
 	</div>
 </div>

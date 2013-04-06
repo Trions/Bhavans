@@ -104,8 +104,7 @@ div.submenu
  	display:block;
  	padding:10px;
  	margin:4px;
- 	
- }
+  }
  
  .main_content a{
  	
@@ -120,6 +119,15 @@ div.submenu
  	
  	
  	}
+ 	
+ 	.s_main_content label{
+ 		width: 300;
+ 		}
+ 	
+ 	.sub_content label{
+ 		width: 100;
+ 		
+ 		}
 
 	
 a.account {
