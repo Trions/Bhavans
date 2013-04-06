@@ -22,6 +22,7 @@
 					echo '</select>'
 				?>
 			</li>
+			
 			<li>
 				<label for="grade">Grade</label>
 				<input type="text" id="grade" name="grade"/>

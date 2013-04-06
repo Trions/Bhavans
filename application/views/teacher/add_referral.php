@@ -242,8 +242,7 @@
 				<label for="no">No</label>
 				</div>
 				
-			</li><br>
-			
+			</li><br>			
 			
 			<li>
 				<label for="remarks">Remarks</label>
