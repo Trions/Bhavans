@@ -8,7 +8,7 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
  echo '<table border=0 cellspacing=25>';
  echo '<tr>
  	<th><h3>Student Name</h3></th>
- 	<th><h3>View</h3></th>
+ 	//<th><h3>View</h3></th>
  	<th><h3>Option</h3></th>
  	</tr>';
  foreach ($query as $q)
@@ -17,18 +17,8 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		
 		echo '<tr>';
 		echo '<td><h4>';
-		//echo '<h1>';
-		echo anchor('/coordinator/list_student_info/'.$q->stu_name,$q->stu_name);
-		echo '</h4></td>';
-		echo '<td><h4>';
-		echo anchor('/coordinator/edit_student/'.$q->stu_id,'Update Information');
-		echo '</h4></td>';
-		echo '<td><h4>';	
-		echo anchor('/coordinator/remove_student/'.$q->stu_name,'Delete');
-		//echo '</h1>';
-		echo '</h4></td>';
-		echo '<td><h4>';
-		echo anchor('/coordinator/list_caserecord/'.$q->stu_name,'Case Record');
+		
+		echo anchor('/coordinator/list_caserecord_info/'.$q->stu_name);
 		echo '</tr>';
 		
 		

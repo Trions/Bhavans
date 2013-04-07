@@ -71,7 +71,7 @@
 			<input type="text" id="email" name="email"/>
 </li>
 <li>			
-			<input type="submit" id="submit" name="submit" value="Submit"/>
+			<input type="submit" id="submit" name="submit" value="Submit" />
 			<input type="reset" id="reset" name="reset" value="Reset"/>
 		
 </li>

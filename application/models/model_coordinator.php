@@ -16,12 +16,18 @@
 			$username_password['lgin_cat']=2;
 			$username_password['lgin_id'] = mysql_insert_id();
 		        $this->db->insert('tbl_login',$username_password);
+	
 			echo "<script>alert('Inserted Sucessfully...');
 			
 			</script>";
+			$this->load->view('crdinator/add_teacher');
 		}
 		function register_student($student_info){		
 			$this->db->insert('tbl_student_registration',$student_info);
+			echo "<script>alert('Inserted Sucessfully...');
+			
+			</script>";
+			$this->load->view('crdinator/add_stu');
 		}
 		
 		function register_school($school_info){
@@ -73,6 +79,18 @@
 				}
 			return $data;
 			}
+		
+
+		}		
+		 function list_caserecord(){
+			$query = $this->db->query('SELECT * FROM tbl_caserecord_special');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		
 
 		}		
 		function list_teacher(){
@@ -113,6 +131,17 @@
 		function list_student_info($name){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
 			$query = $this->db->get_where('tbl_student_registration', array('stu_name' => $name));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+		
+		function list_caserecord_info($name){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_caserecord_special', array('s_name' => $name));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;

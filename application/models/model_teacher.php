@@ -22,6 +22,9 @@ class Model_teacher extends CI_Model{
 	function register_evaluation($evaluation_info){
 		$this->db->insert('tbl_coun_inst_obj_act',$evaluation_info);
 	}
+	function register_caserecord($report_info){
+		$this->db->insert('tbl_caserecord_special',$report_info);
+	}
 	
 	function add_referral_get(){
 		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');

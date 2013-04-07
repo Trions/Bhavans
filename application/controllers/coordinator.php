@@ -34,7 +34,10 @@ class Coordinator extends CI_Controller{
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_student($stu_info);
 		//$this->load->view('crdinator/reg_sucessfull',$stu_info);
-		redirect('coordinator/add_student');
+		//echo "<script>alert('Inserted Successfully.')";
+		
+		
+		//redirect('coordinator/add_student');
 	
 	}
 	
@@ -56,9 +59,7 @@ class Coordinator extends CI_Controller{
 		
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_teacher($teacher_info);
-
-		echo "<script>alert('Updated...')";
-		redirect('coordinator/add_teacher');
+		
 
 	}
 	
@@ -71,7 +72,7 @@ class Coordinator extends CI_Controller{
 		
 		$this->load->model('model_coordinator');
 		$this->model_coordinator->register_school($school_info);
-		redirect('coordinator/add_school');
+		
 		
 	}
 	
@@ -99,6 +100,11 @@ class Coordinator extends CI_Controller{
 			$this->load->model('model_coordinator');
 			$data['query']= $this->model_coordinator->list_teacher();
 			$this->load->view('crdinator/list_teacher',$data);
+		}
+		function list_caserecord(){
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->list_caserecord();
+			$this->load->view('crdinator/list_caserecord',$data);
 		}
 
 	
@@ -301,7 +307,11 @@ class Coordinator extends CI_Controller{
 		$data['query']=$this->model_coordinator->list_teacher_info($fname);
 		$this->load->view('crdinator/list_teacher_info',$data);
 	}
-
+	function list_caserecord_info($name){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->list_caserecord_info($name);
+		$this->load->view('crdinator/list_caserecord_info',$data);
+	}
 
 }
 
