@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2013 at 08:37 AM
+-- Generation Time: Apr 07, 2013 at 09:34 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -19,6 +19,56 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_bha`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_caserecord_special`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_caserecord_special` (
+  `s_name` varchar(30) NOT NULL,
+  `school` varchar(20) NOT NULL,
+  `clas` varchar(20) NOT NULL,
+  `info_provider` varchar(30) NOT NULL,
+  `m_name` varchar(30) NOT NULL,
+  `m_age` int(3) NOT NULL,
+  `m_education` varchar(30) NOT NULL,
+  `m_occupation` varchar(30) NOT NULL,
+  `m_mobile` varchar(15) NOT NULL,
+  `f_name` varchar(30) NOT NULL,
+  `f_age` int(3) NOT NULL,
+  `f_education` varchar(30) NOT NULL,
+  `f_occupation` varchar(10) NOT NULL,
+  `f_mobile` varchar(15) NOT NULL,
+  `guardian` varchar(30) NOT NULL,
+  `g_age` int(3) NOT NULL,
+  `g_education` varchar(30) NOT NULL,
+  `g_occupation` varchar(30) NOT NULL,
+  `g_mobile` varchar(15) NOT NULL,
+  `mstatus` varchar(10) NOT NULL,
+  `mtounge` varchar(30) NOT NULL,
+  `present_problem` varchar(1000) NOT NULL,
+  `sensory_communication` varchar(10) NOT NULL,
+  `socialbehaviour` varchar(10) NOT NULL,
+  `date_noticed` varchar(100) NOT NULL,
+  `past_exp` varchar(10) NOT NULL,
+  `present_exp` varchar(10) NOT NULL,
+  `med_history` varchar(1000) NOT NULL,
+  `school_info` varchar(150) NOT NULL,
+  `other_info` varchar(1000) NOT NULL,
+  `class_support` varchar(1000) NOT NULL,
+  `daily_report` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_caserecord_special`
+--
+
+INSERT INTO `tbl_caserecord_special` (`s_name`, `school`, `clas`, `info_provider`, `m_name`, `m_age`, `m_education`, `m_occupation`, `m_mobile`, `f_name`, `f_age`, `f_education`, `f_occupation`, `f_mobile`, `guardian`, `g_age`, `g_education`, `g_occupation`, `g_mobile`, `mstatus`, `mtounge`, `present_problem`, `sensory_communication`, `socialbehaviour`, `date_noticed`, `past_exp`, `present_exp`, `med_history`, `school_info`, `other_info`, `class_support`, `daily_report`) VALUES
+('jhg', 'vidyalaya ekm', 'aef', 'hljg', 'jhgjkhg', 12, 'khgkjgk', 'gkug', 'kugkuyg', 'kuygkuygkuygk', 34, 'uygugt', 'kuug', 'yufkgk', 'gkuyg', 23, 'fgugf', 'kuygkuyku', 'kuglhlkjuh', 'hj', 'kgkugy', 'kg', 'ugkuyg', 'kuygu', 'gkuyfku', 'fkugf', 'kufgku', 'yfuyf', 'kuyfkf', 'kufku', 'fykuyf', 'kufy'),
+('fy', 'st. 123', 'aef', 'hljg', 'jhgjkhg', 0, 'khgkjgk', 'gkug', 'kugkuyg', 'kuygkuygkuygk', 0, 'uygugt', 'kuug', 'yufkgk', 'gkuyg', 0, 'fgugf', 'kuygkuyku', 'kuglhlkjuh', '0', 'kgkugy', 'kg', 'ugkuyg', 'kuygu', 'gkuyfku', 'fkugf', 'kufgku', 'yfuyf', 'kuyfkf', 'kufku', 'fykuyf', 'kufy'),
+('ytiy', 'baha ernakulam', 'aef', 'hljg', 'jhgjkhg', 0, 'khgkjgk', 'gkug', 'kugkuyg', 'kuygkuygkuygk', 0, 'uygugt', 'kuug', 'yufkgk', 'gkuyg', 0, 'fgugf', 'kuygkuyku', 'kuglhlkjuh', '0', 'kgkugy', 'kg', 'ugkuyg', 'kuygu', 'gkuyfku', 'fkugf', 'kufgku', 'yfuyf', 'kuyfkf', 'kufku', 'fykuyf', 'kufy');
 
 -- --------------------------------------------------------
 
@@ -127,7 +177,44 @@ INSERT INTO `tbl_login` (`lgin_name`, `lgin_pass`, `lgin_cat`, `lgin_id`) VALUES
 ('jobm', 'password', 2, 0),
 ('kamalaj', 'password', 2, 22),
 ('claram', 'password', 2, 23),
-('dateck', 'password', 2, 24);
+('dateck', 'password', 2, 24),
+('gkg75', 'password', 2, 25),
+('gkg75', 'password', 2, 26),
+('ytyt5765', 'password', 2, 27),
+('', 'password', 2, 28),
+('jgyuyyghk', 'password', 2, 29),
+('hg6t', 'password', 2, 30),
+('uygu76', 'password', 2, 31),
+('uygu76', 'password', 2, 32),
+('uygu76', 'password', 2, 33),
+('uygu76', 'password', 2, 34),
+('', 'password', 2, 35),
+('', 'password', 2, 36),
+('', 'password', 2, 37),
+('', 'password', 2, 38),
+('', 'password', 2, 39),
+('', 'password', 2, 40),
+('', 'password', 2, 41),
+('', 'password', 2, 42),
+('', 'password', 2, 43),
+('', 'password', 2, 44),
+('', 'password', 2, 45),
+('', 'password', 2, 46),
+('', 'password', 2, 47),
+('', 'password', 2, 48),
+('', 'password', 2, 49),
+('', 'password', 2, 50),
+('', 'password', 2, 51),
+('', 'password', 2, 52),
+('', 'password', 2, 53),
+('', 'password', 2, 54),
+('', 'password', 2, 55),
+('', 'password', 2, 56),
+('', 'password', 2, 57),
+('', 'password', 2, 58),
+('', 'password', 2, 59),
+('', 'password', 2, 60),
+('', 'password', 2, 61);
 
 -- --------------------------------------------------------
 
@@ -186,7 +273,6 @@ CREATE TABLE IF NOT EXISTS `tbl_rem_referral` (
 --
 
 INSERT INTO `tbl_rem_referral` (`sl_no`, `student_name`, `grade`, `school`, `teacher_id`, `reason_for_referring`, `fscr`, `fd`, `cpc`, `la`, `pca`, `wwdo`, `cwat`, `cha`, `sebw`, `wco`, `tcpp`, `tcsp`, `roc`, `psc`, `ra`, `bapg`, `baccar`, `remarks`, `academic`, `student_strengths`, `view_about_parents`) VALUES
-(2, 'fdsaf', 'hsd', 'egettdgdghj', 564453, 'dfhsfdsg\ndsgf ', 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, ' dfdvdv\nfdsg', ' fsadfssa', ' dfsdfsdafsddsf', 'sfdsafdsdfsd'),
 (3, 'kokk', 'afd', 'sfs', 43, ' sdafsa', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ' ', ' ', ' ', ' '),
 (4, 'kaka', 'sdf3', 'asldfd', 444, ' adf asdfl', 1, 2, 2, 2, 2, 1, 2, 0, 0, 2, 1, 2, 0, 1, 0, 2, 0, ' sdfs', ' fd', ' sfdsa', ' fddsg'),
 (5, 'kjuikugf', 'yhgjk', 'kjhsa', 543, ' sfsa', 1, 2, 1, 0, 0, 0, 2, 2, 0, 0, 0, 1, 1, 1, 2, 2, 1, ' asdfsafasf', ' saf', ' sada', ' sfdkjuikugf'),
@@ -253,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `tbl_student_registration` (
   `stu_ph_off` varchar(12) DEFAULT NULL,
   `stu_ph_mob` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`stu_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `tbl_student_registration`
@@ -263,7 +349,35 @@ INSERT INTO `tbl_student_registration` (`stu_id`, `stu_rollno`, `stu_name`, `stu
 (1, 'yf', 'fy', 'yf', '0000-00-00', 'diu', 'du', 'du', 'ud', 'du', 'du', 'du'),
 (7, '345', 'mona', 'e', '1997-08-03', '0', 'sfsf', 'yebhi', 'fsaf\nsdfa\nsdf', '4324', '454345', '453453'),
 (8, 'gfu5', 'adsf', 'fu', '1989-08-23', '1', 'mhguy', 'yuy', 'jf]jy\nhfyt   ', '4567', '4567', '4567'),
-(9, '333', 'jango', 'd', '1980-08-03', '1', 'ddd', 'dsaf', 'das\ndfd\ndsd ', '987654678', '098567895', '098765456');
+(9, '333', 'jango', 'd', '1980-08-03', '1', 'ddd', 'dsaf', 'das\ndfd\ndsd ', '987654678', '098567895', '098765456'),
+(10, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(11, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(12, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(13, '87', 'jhg', 't6hf', '2013-01-01', '0', 'gf', 'fhgf', 'fghf ', 'hgfj', 'hfhgf', 'fhgfh'),
+(14, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(15, '87', 'jhg', 't6hf', '2013-01-01', '0', 'gf', 'fhgf', 'fghf ', 'hgfj', 'hfhgf', 'fhgfh'),
+(16, '676', 'ytiy', 'yfyf', '2013-01-01', '0', 'tyf', 'tff', 'tyf ', 'tft', 'tf', 'ytf'),
+(17, '676', 'ytiy', 'yfyf', '2013-01-01', '0', 'tyf', 'tff', 'tyf ', 'tft', 'tf', 'ytf'),
+(18, '6', 'tyy', '765t', '2013-01-01', '0', '', 'ff', 'fytf ', 'f', 'tff', 't'),
+(19, '6', 'tyy', '765t', '2013-01-01', '0', '', 'ff', 'fytf ', 'f', 'tff', 't'),
+(20, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(21, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(22, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(23, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(24, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(25, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(26, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(27, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(28, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(29, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(30, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(31, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(32, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(33, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(34, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(35, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(36, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', ''),
+(37, '', '', '', '2013-01-01', '0', '', '', ' ', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -398,7 +512,7 @@ CREATE TABLE IF NOT EXISTS `tbl_teacher` (
   `teacher_phone` varchar(12) NOT NULL,
   `teacher_email` varchar(20) NOT NULL,
   PRIMARY KEY (`teacher_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `tbl_teacher`
@@ -412,7 +526,44 @@ INSERT INTO `tbl_teacher` (`teacher_id`, `teacher_first_name`, `teacher_last_nam
 (20, 'job', 'd', 1, 111, '0000-00-00', ' sdfsdf\nwsfs\nswf ', 'indian', 0x30, '876543234', 'dsgfdst'),
 (22, 'kamala', 'j', 0, 0, '0000-00-00', ' adsaf\nsdfa\nsdf\nsd', 'in', '', '456', 'rtyrgh'),
 (23, 'clara', 'm', 0, 24343, '0000-00-00', ' akfkf\nasjfk\nfa', 'sadf', '', '54234', 'dgd'),
-(24, 'date', 'ck', 0, 124, '1997-08-03', ' fddsfa\nsadf\nsdagf', 'sdf', '', '6543245', 'rsfggfrr');
+(24, 'date', 'ck', 0, 124, '1997-08-03', ' fddsfa\nsadf\nsdagf', 'sdf', '', '6543245', 'rsfggfrr'),
+(25, 'gkg', '75', 0, 111, '0000-00-00', 'tff ', 'tyf', 0x30, '', 'tf'),
+(26, 'gkg', '75', 0, 111, '0000-00-00', 'tff ', 'tyf', 0x30, '', 'tf'),
+(27, 'ytyt', '5765', 0, 111, '0000-00-00', 'gff ', 'jfg', 0x30, 'gfg', 'gfj'),
+(28, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(29, 'jgyuy', 'yghk', 0, 111, '0000-00-00', 'f ', 'fyt', 0x30, 'fyt', 'ytfy'),
+(30, 'hg', '6t', 0, 111, '0000-00-13', 'yu ', 'y', 0x30, 'tf', 'yft'),
+(31, 'uygu', '76', 0, 111, '0000-00-00', 'yguy ', 'gy', 0x30, '', 'y'),
+(32, 'uygu', '76', 0, 111, '0000-00-00', 'yguy ', 'gy', 0x30, '', 'y'),
+(33, 'uygu', '76', 0, 111, '0000-00-00', 'yguy ', 'gy', 0x30, '', 'y'),
+(34, 'uygu', '76', 0, 111, '0000-00-00', 'yguy ', 'gy', 0x30, '', 'y'),
+(35, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(36, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(37, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(38, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(39, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(40, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(41, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(42, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(43, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(44, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(45, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(46, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(47, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(48, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(49, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(50, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(51, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(52, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(53, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(54, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(55, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(56, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(57, '', '', 0, 0, '0000-00-00', ' ', '', 0x30, '', ''),
+(58, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(59, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(60, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', ''),
+(61, '', '', 0, 111, '0000-00-00', ' ', '', 0x30, '', '');
 
 -- --------------------------------------------------------
 

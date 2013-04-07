@@ -26,14 +26,14 @@
 			   <input type="radio" id="gender_female" value="0" name="gender"  />
 				<label for="gender_female">Female</label>
 				
-</li><br>
+</li>
 
 <li>
 
 	<label for="school">School</label>
 	<?php 
-		echo '<select>';
-		echo '<option value="0">-- -- -- -</option>';
+		echo '<select name="school">';
+		//echo '<option value="0">-- -- -- -</option>';
 		foreach ($query as $q){
 		echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
 		
@@ -71,7 +71,7 @@
 			<input type="text" id="email" name="email"/>
 </li>
 <li>			
-			<input type="submit" id="submit" name="submit" value="Submit"/>
+			<input type="submit" id="submit" name="submit" value="Submit" action="echo <script>alert('Inserted Sucessfully...')"/>
 			<input type="reset" id="reset" name="reset" value="Reset"/>
 		
 </li>

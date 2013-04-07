@@ -24,7 +24,8 @@ if($query==0){echo '<h3> No Teachers to Display </h3>';}
 		echo anchor('/coordinator/edit_teacher/'.$q->teacher_id,'Update Information');
 		echo '</h4></td>';
 		echo '<td><h4>';	
-		echo anchor('/coordinator/remove_teacher/'.$q->teacher_first_name,'Delete');		
+		echo anchor('/coordinator/remove_teacher/'.$q->teacher_first_name,'Delete');	
+			
 		//echo '</h1>';
 		echo '</h4></td>';
 		

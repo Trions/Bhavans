@@ -27,6 +27,8 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		echo anchor('/coordinator/remove_student/'.$q->stu_name,'Delete');
 		//echo '</h1>';
 		echo '</h4></td>';
+		echo '<td><h4>';
+		echo anchor('/coordinator/list_caserecord_info/'.$q->stu_name,'Case Record');
 		echo '</tr>';
 		
 		

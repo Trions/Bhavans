@@ -31,6 +31,13 @@
 	
 			$this->load->view('teacher/add_evaluation.php');
 		}
+		function add_caserecord(){
+			$this->load->model('model_teacher');
+			$data['query1']= $this->model_teacher->add_report_get();
+			$data['query2']= $this->model_teacher->add_referral_get();
+			$this->load->view('teacher/add_caserecord.php',$data,$data);
+		}
+		
 		
 		function register_referral(){
 	
@@ -122,6 +129,59 @@
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_evaluation($evaluation_info);
+		}
+
+		function register_caserecord(){
+		
+			//$report_info['teach_id']=$this->input->post("teacher_id");
+			
+			$report_info['s_name']=$this->input->post("s_name");
+			//$report_info['s_dob']=$this->input->post("dob");
+			//$report_info['s_gender']=$this->input->post("s_gender");
+			//$report_info['s_address']=$this->input->post("s_address");
+			$report_info['school']=$this->input->post("school");
+			$report_info['clas']=$this->input->post("class");
+			$report_info['info_provider']=$this->input->post("info_provider");
+			$report_info['m_name']=$this->input->post("m_name");
+			$report_info['m_age']=$this->input->post("m_age");
+			$report_info['m_education']=$this->input->post("m_edu");
+			$report_info['m_occupation']=$this->input->post("m_occupation");
+			$report_info['m_mobile']=$this->input->post("m_mobile");
+			$report_info['f_name']=$this->input->post("f_name");
+			$report_info['f_age']=$this->input->post("f_age");
+			$report_info['f_education']=$this->input->post("f_edu");
+			$report_info['f_occupation']=$this->input->post("f_occupation");
+			$report_info['f_mobile']=$this->input->post("f_mobile");
+			$report_info['guardian']=$this->input->post("g_name");
+			$report_info['g_age']=$this->input->post("g_age");
+			$report_info['g_education']=$this->input->post("g_edu");
+			$report_info['g_occupation']=$this->input->post("g_occupation");
+			$report_info['g_mobile']=$this->input->post("g_mobile");
+			$report_info['mstatus']=$this->input->post("mstatus");
+			$report_info['mtounge']=$this->input->post("m_tounge");
+			
+			$report_info['present_problem']=$this->input->post("present_problem");
+			$report_info['sensory_communication']=$this->input->post("sensory_communication");
+			$report_info['socialbehaviour']=$this->input->post("socialbehaviour");
+			$report_info['date_noticed']=$this->input->post("date_noticed");
+			$report_info['past_exp']=$this->input->post("past_exp");
+			$report_info['present_exp']=$this->input->post("present_exp");
+			$report_info['med_history']=$this->input->post("med_info");
+			$report_info['school_info']=$this->input->post("school_info");
+			$report_info['other_info']=$this->input->post("other");
+			$report_info['class_support']=$this->input->post("class_support");
+			$report_info['daily_report']=$this->input->post("daily_report");
+			
+
+
+
+
+			
+						
+			$this->load->model('model_teacher');
+			$this->model_teacher->register_caserecord($report_info);
+			//redirect('teacher/add_report');
+			
 		}
 
 

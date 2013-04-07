@@ -16,17 +16,38 @@
 			$username_password['lgin_cat']=2;
 			$username_password['lgin_id'] = mysql_insert_id();
 		        $this->db->insert('tbl_login',$username_password);
+	
 			echo "<script>alert('Inserted Sucessfully...');
-			window.location='crdinator/add_teacher.php';
+			
 			</script>";
+			$this->load->view('crdinator/add_teacher');
 		}
 		function register_student($student_info){		
 			$this->db->insert('tbl_student_registration',$student_info);
+			echo "<script>alert('Inserted Sucessfully...');
+			
+			</script>";
+			$this->load->view('crdinator/add_stu');
 		}
 		
 		function register_school($school_info){
 		
 			$this->db->insert('tbl_school',$school_info);
+		}
+		
+		function update_student($stu_info){
+			$this->db->where('stu_id', $stu_info['stu_id']);
+			$this->db->update('tbl_student_registration', $stu_info); 
+		}
+		
+		function update_school($school_info){
+			$this->db->where('scl_id', $school_info['scl_id']);
+			$this->db->update('tbl_school', $school_info); 
+		}
+		
+		function update_teacher($teacher_info){
+			$this->db->where('teacher_id', $teacher_info['teacher_id']);
+			$this->db->update('tbl_teacher', $teacher_info); 
 		}
 		
 		
@@ -50,8 +71,6 @@
 			}
 		}
 		
-<<<<<<< HEAD
-=======
 		 function list_student(){
 			$query = $this->db->query('SELECT * FROM tbl_student_registration');
 			if($query->num_rows > 0){
@@ -60,6 +79,18 @@
 				}
 			return $data;
 			}
+		
+
+		}		
+		 function list_caserecord(){
+			$query = $this->db->query('SELECT * FROM tbl_caserecord_special');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		
 
 		}		
 		function list_teacher(){
@@ -86,10 +117,9 @@
 
 	}
 
->>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
-		function ref_student_info($name){
+		function ref_student_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_rem_referral', array('student_name' => $name));
+			$query = $this->db->get_where('tbl_rem_referral', array('sl_no' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -97,16 +127,10 @@
 			return $data;
 			}
 		}
-<<<<<<< HEAD
-		
-		function ref_student_report($name){
-		 	$query = $this->db->get_where('tbl_teacher_report', array('new_stu_name' => $name));
-=======
 
 		function list_student_info($name){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
 			$query = $this->db->get_where('tbl_student_registration', array('stu_name' => $name));
->>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -114,39 +138,46 @@
 			return $data;
 			}
 		}
-<<<<<<< HEAD
 		
-		function delete_school($id){
-			$this->db->delete('tbl_school', array('scl_id' => $id));
-
+		function list_caserecord_info($name){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_caserecord_special', array('s_name' => $name));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
 		}
-
-
-	function add_teacher_get(){
-		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
-=======
 
 		function list_teacher_info($fname){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
 			$query = $this->db->get_where('tbl_teacher', array('teacher_first_name' => $fname));
->>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
 				}
 			return $data;
 			}
-<<<<<<< HEAD
-	}
-
-	
-=======
+		}
+		
+		function ref_student_report($id){
+		 	$query = $this->db->get_where('tbl_teacher_report', array('sl_no' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
 		}
 		
 		function delete_school($id){
 			$this->db->delete('tbl_school', array('scl_id' => $id));
 
 		}
+
+
+
 		function delete_student($name){
 			$this->db->delete('tbl_student_registration', array('stu_name' => $name));
 
@@ -156,9 +187,51 @@
 
 		}
 		
-		
-		
+		function delete_ref_student($id){
+			$this->db->delete('tbl_rem_referral', array('sl_no' => $id));
 
->>>>>>> 4afc9c2fc171f323ffe08e3c7bf2e4d88a7b9556
+		}
+		
+		function add_teacher_get(){
+		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+		
+		function edit_student($id){
+			$query = $this->db->get_where('tbl_student_registration', array('stu_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
+		
+		function edit_school($id){
+			$query = $this->db->get_where('tbl_school', array('scl_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
+		
+		function edit_teacher($id){
+			$query = $this->db->get_where('tbl_teacher', array('teacher_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}		
+		}
+
+
 	}
 ?>
