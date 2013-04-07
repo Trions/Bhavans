@@ -1,32 +1,35 @@
 <html>
 <head>
-<title> Login</title>
+<title>
+ Login</title>
 </head>
-<body>
+<link rel="stylesheet" type="text/css" href="http://localhost/codeigniter/style.css" />
 
-<form method="post" action="index.php/login/usr_lgin">
-<table>
-	<tr>
-		<td> </td>
-		<td>
-			<label for="name">Name</label>
- 			<input type="text" name="name" id="name" value=""/>
- 		</td>
- <br/>
-	<tr>
-		<td></td>
-		<td>
- 
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password" value=""/>
- 		</td>
- 	</tr>
- 		<td></td>
- 		<td>
- 		
- 			<input type="submit" value="Login"/>
- 			
-<?php echo validation_errors();?>
-</form>
+<body>
+<div class="container">
+	<div class="title_bar">
+		<div class="title_image">
+		</div>
+		<?php echo validation_errors(); ?>
+	</div>
+	
+	
+	<form class="form-1" method="post" action="<?php echo base_url()?>login/usr_lgin">
+		<?php echo validation_errors(); ?>
+
+					<p class="field">
+						<input type="text" name="name" placeholder="Username or email">
+						<i class="icon-user icon-large"></i>
+					</p>
+						<p class="field">
+							<input type="password" name="password" placeholder="Password">
+							<i class="icon-lock icon-large"></i>
+					</p>
+					<p class="submit">
+						<button type="submit" name="submit"><i class="icon-arrow-right icon-large"></i></button>
+					</p>
+				</form>
+	
+
  </body>
  </html>

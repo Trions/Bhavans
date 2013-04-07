@@ -93,7 +93,7 @@ $(".account").attr('id', '');
 
 
 	    			<li>
-	      				<a href="#signout">Sign Out</a>
+	      				<a href="<?php echo base_url();?>coordinator/sign_out">Sign Out</a>
 	    			</li>
 	  		</ul>
 		</div>

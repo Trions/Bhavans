@@ -94,8 +94,8 @@ div.submenu
  	background:;
  	text-align:justify;
  	padding:0px 12px 0px 12px;
- 	box-shadow: 0 1px 5px #155FB0;
- 	border:2px solid black;
+ 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+ 	border:2px solid #155FB0;
 	/*border-radius :25px;*/
 	overflow: auto;
 	

@@ -8,20 +8,15 @@ class Login extends CI_Controller{
 
 	}
 	
-	function test()
-	{
-	}
 	function usr_lgin(){
 	
-		$this->load->library('form_validation');
-		
-		$this->form_validation->set_rules('name','User Name','required');
-		$this->form_validation->set_rules('password','Password','required');
+		//$this->form_validation->set_rules('name','User Name','required');
+		//$this->form_validation->set_rules('password','Password','required');
 		//$this->form_validation->set_rules('email','Email','required|valid_email');
 		
-		if($this->form_validation->run()==false)
-			redirect('login');
-		else{
+		//if($this->form_validation->run()==false)
+		//	redirect('login');
+		//else{
 			$this->load->model('usr_model');
 			$query=$this->usr_model->usr_login();
 			 
@@ -29,7 +24,7 @@ class Login extends CI_Controller{
 			
 			if($query){
 					$this->load->library('session');
-					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id'],'user_cat'=> $query['lgin_cat']);
+					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id'],'user_cat'=> $query['lgin_cat'], 'logged_in' => TRUE);
 					$this->session->set_userdata($u_data);
 					if($query['lgin_cat']==1)
 						redirect('coordinator');
@@ -49,11 +44,10 @@ class Login extends CI_Controller{
 
 					}
 			}
-		}
+		//}
 	}
 	
 	function index(){
-		$this->load->library('form_validation');
 		$this->load->view('login_view');
 	}
 
