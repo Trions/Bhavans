@@ -12,6 +12,7 @@ height: 17px;
 text-align:left;
 float:right;
 }
+
 div.submenu
 {
 	background: #fff;
@@ -93,10 +94,9 @@ div.submenu
  	background:;
  	text-align:justify;
  	padding:0px 12px 0px 12px;
- 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
- 
- 	/*border:2px solid green;*/
-	border-radius :25px;
+ 	box-shadow: 0 1px 5px #155FB0;
+ 	border:2px solid black;
+	/*border-radius :25px;*/
 	overflow: auto;
 	
  }
@@ -179,7 +179,14 @@ a.account {
 	float:right;	
 	
 }
-
+.title_image{
+	height: 70;
+	background : url(icons/athena.png) no-repeat;
+	min-width: 100%;
+	min-height: 70;
+	overflow: auto;
+	background-position: center center;
+	}
 .title_bar{
 
  	position: relative;
@@ -191,7 +198,7 @@ a.account {
  	border:thick;
  	
  	background-position:center;
- 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+ 	
  }
  .titleheader{
   	position:relative;
@@ -199,7 +206,7 @@ a.account {
   	min-width: 100%;
   	min-height: 30px;
   	border:thin;
-  	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  
   
  }
  

@@ -133,6 +133,23 @@ class Coordinator extends CI_Controller{
 	function display_parent(){
 	}
 	
+	function view_marks_chart($id){
+		$this->load->model('model_coordinator');
+		$result = $this->model_coordinator->view_marks_chart($id);
+		$dat['x_labels'] = 'fa';
+		$dat['series']=array('eng','hin','mal_san','math','science','social_science','gk');
+		$dat['data']=$result;
+		if($dat['data']==0){$this->load->view('crdinator/no_data_message');}
+		else{
+		$this->load->library('highcharts');
+		$this->highcharts->from_result($dat)->add();
+		$data['charts'] = $this->highcharts->render();
+		$this->load->view('crdinator/view_mark_chart', $data);
+		}
+	
+	}
+	
+	
 	function edit_student($id){
 		$this->load->model('model_coordinator');
 		$data['query']=$this->model_coordinator->edit_student($id);

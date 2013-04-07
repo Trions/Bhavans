@@ -9,7 +9,8 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
  echo '<tr>
  	<th><h3>Student Name</h3></th>
  	<th><h3>View</h3></th>
- 	<th><h3>Option</h3></th>
+ 	<th><h3></h3></th>
+ 	<th><h3>option</h3></th>
  	</tr>';
  foreach ($query as $q)
  	{
@@ -20,6 +21,11 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		//echo '<h1>';
 		echo anchor('/coordinator/list_student_info/'.$q->stu_name,$q->stu_name);
 		echo '</h4></td>';
+		
+		echo '<td><h4>';
+		echo anchor('/coordinator/view_marks_chart/'.$q->stu_id,'Chart');
+		echo '</h4></td>';
+		
 		echo '<td><h4>';
 		echo anchor('/coordinator/edit_student/'.$q->stu_id,'Update Information');
 		echo '</h4></td>';

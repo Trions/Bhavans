@@ -50,8 +50,8 @@ $(".account").attr('id', '');
 <body>
 <div class="container">
 	<div class="title_bar">
-				Athena
-				<br>
+	<div class="title_image">
+		</div>
 	</div>
 	
 	

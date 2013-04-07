@@ -202,6 +202,28 @@
 			return $data;
 			}		
 		}
+		
+		function view_marks_chart($id){
+			$this->db->select('*');
+			$this->db->from('tbl_stu_acdmic_perfo');
+			$this->db->where('stu_id', $id);
+			$q = $this->db->get();
+		
+			if($q->num_rows() > 0){
+				foreach($q->result() as $row){
+					$data[] = (object)array('eng' =>$row->eng ,
+								'hin' =>$row->hin ,
+								'mal_san' =>$row->mal_san,
+								'math' => $row->math,
+								'science' => $row->science,
+								'social_science' => $row->social_science,
+								'gk' => $row->gk,
+								 'fa' => $row->fa);
+				}
+				return $data;
+			}
+		
+		}
 
 
 	}

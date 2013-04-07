@@ -32,6 +32,12 @@
 			$this->load->view('teacher/add_evaluation.php');
 		}
 		
+		function add_mark(){
+			$this->load->model('model_teacher');
+			$data['query']= $this->model_teacher->add_mark_get();
+			$this->load->view('teacher/add_mark.php',$data);
+		}
+		
 		function register_referral(){
 	
 			$referral_info['student_name']=$this->input->post("name");
@@ -94,6 +100,25 @@
 			$this->model_teacher->register_report($report_info);
 			redirect('teacher/add_report');
 			
+		}
+		
+		function register_mark(){
+			$mark_info['stu_id']=$this->input->post("stu_id");
+			$mark_info['stu_grade']=$this->input->post("grade");
+			$mark_info['eng']=$this->input->post("english");
+			$mark_info['hin']=$this->input->post("hindi");
+			$mark_info['mal_san']=$this->input->post("mal_san");
+			$mark_info['math']=$this->input->post("mathematics");
+			$mark_info['science']=$this->input->post("science");
+			$mark_info['social_science']=$this->input->post("social_science");
+			$mark_info['gk']=$this->input->post("gk");
+			$mark_info['fa']=$this->input->post("ass_type");
+			$mark_info['date']=date('Y-m-d H:i:s');
+			
+			$this->load->model('model_teacher');
+			$this->model_teacher->register_mark($mark_info);
+			redirect('teacher/add_mark');		
+		
 		}
 		
 		function register_subject(){
