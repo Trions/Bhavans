@@ -65,23 +65,7 @@ $(".account").attr('id', '');
 			<div class="submenu" style="display: none; ">
 
 			  <ul class="root">
-				<li >
-				      <a href="#Dashboard" >Dashboard</a>
-				</li>
-
-	    
-			        <li >
-	      			      <a href="#Profile" >Profile</a>
-	    			</li>
-	   			<li >
-
-	      				<a href="#settings">Settings</a>
-	    			</li>
-	   
-
-	    			<li>
-	    				  <a href="#feedback">Send Feedback</a>
-	    			</li>
+				
 
 
 

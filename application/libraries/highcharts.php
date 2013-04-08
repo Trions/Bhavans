@@ -90,7 +90,7 @@ class Highcharts {
 		}
 		
 		if (! isset($this->opts['series'])) $this->opts['series'] = array();
-		if (! isset($this->opts['chart']['renderTo'])) $this->opts['chart']['renderTo'] = 'hc_chart';
+		if (! isset($this->opts['chart']['renderTo'])) $this->opts['chart']['renderTo'] = 'main_content';
 
 		return $this;
 	}
@@ -581,7 +581,7 @@ class Highcharts {
         $embed .= 'Highcharts.setOptions('.$this->encode($this->shared_opts).');'."\n";
       }
 
-      if ($opts['chart']['renderTo'] == 'hc_chart')
+      if ($opts['chart']['renderTo'] == 'main_content')
       {
         $opts['chart']['renderTo'] .= '_'.$d;
         $d++;
@@ -614,7 +614,7 @@ class Highcharts {
 	{
 		$this->opts = array();
 		$this->opts['series'] = array();
-		$this->opts['chart']['renderTo'] = 'hc_chart';
+		$this->opts['chart']['renderTo'] = 'main_content';
 		$this->serie_index = 0;
 		
 		if ($shared === true) $this->shared_opts = array();

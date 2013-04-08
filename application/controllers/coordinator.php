@@ -155,11 +155,17 @@ class Coordinator extends CI_Controller{
 		$this->load->model('model_coordinator');
 		$result = $this->model_coordinator->view_marks_chart($id);
 		$dat['x_labels'] = 'fa';
+		
 		$dat['series']=array('eng','hin','mal_san','math','science','social_science','gk');
 		$dat['data']=$result;
 		if($dat['data']==0){$this->load->view('crdinator/no_data_message');}
 		else{
 		$this->load->library('highcharts');
+		$this->highcharts->set_title('STUDENT SUBJECT MARKS FOR EACH EXAM');
+		$this->highcharts->set_axis_titles('Exams', 'Marks');
+		$credits->href = '';
+		$credits->text = "";
+		$this->highcharts->set_credits($credits);
 		$this->highcharts->from_result($dat)->add();
 		$data['charts'] = $this->highcharts->render();
 		$this->load->view('crdinator/view_mark_chart', $data);

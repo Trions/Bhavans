@@ -68,6 +68,7 @@ div.submenu
  	margin:;
    width: 300; 
    text-decoration: none;
+   color: black;
  
  }
 
@@ -100,6 +101,21 @@ div.submenu
 	overflow: auto;
 	
  }
+ 
+ #main_content_1{
+ 	left:350px;
+	position:absolute;
+	min-width:760px;
+ 	min-height:100%;
+ 	width:1100px;
+ 	height:600px;
+ 	/*padding:0px 12px 0px 12px;*/
+ 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+ 	border:2px solid #155FB0;
+	/*border-radius :25px;
+	overflow: auto;*/
+	
+ }
 .main_content li{
  	display:block;
  	padding:10px;
@@ -109,7 +125,7 @@ div.submenu
  .main_content a{
  	
 	text-decoration: none;
-	color :blue;
+	color : gray;
  	}
  .main_content a:hover{
  	background:#155FB0;
