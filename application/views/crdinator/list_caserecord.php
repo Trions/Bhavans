@@ -1,0 +1,32 @@
+<?php $this->load->view('crdinator/coordinator_header.php');?>
+<?php $this->load->view('crdinator/coordinator_sidebar.php');?>
+<div class="main_content">
+<?php
+if($query==0){echo '<h3> No Students to Display </h3>';}
+ else{
+ echo '<tittle>Students</tittle>';
+ echo '<table border=0 cellspacing=25>';
+ echo '<tr>
+ 	<th><h3>Student Name</h3></th>
+ 	//<th><h3>View</h3></th>
+ 	<th><h3>Option</h3></th>
+ 	</tr>';
+ foreach ($query as $q)
+ 	{
+		//echo '<h1>' .$q->scl_id. '</h1>';
+		
+		echo '<tr>';
+		echo '<td><h4>';
+		
+		echo anchor('/coordinator/list_caserecord_info/'.$q->s_name);
+		echo '</tr>';
+		
+		
+
+		
+		
+	}
+ echo '</table>';
+	}
+?>
+</div>
