@@ -41,7 +41,10 @@
 
 		function add_evaluation(){
 		if($this->session->userdata('logged_in')){
-			$this->load->view('teacher/add_evaluation.php');
+
+			$this->load->model('model_teacher');
+			$data['query1']= $this->model_teacher->add_evaluation_get();
+			$this->load->view('teacher/add_evaluation.php',$data);
 		}}
 		
 		function add_caserecord(){
@@ -59,6 +62,7 @@
 			$this->load->view('teacher/add_mark.php',$data);
 		}
 		}
+		
 		function register_referral(){
 			if($this->session->userdata('logged_in')){
 			$referral_info['student_name']=$this->input->post("name");
@@ -126,7 +130,7 @@
 		function register_mark(){
 		if($this->session->userdata('logged_in')){
 			$mark_info['stu_id']=$this->input->post("stu_id");
-			$mark_info['stu_grade']=$this->input->post("grade");
+			//$mark_info['stu_grade']=$this->input->post("grade");
 			$mark_info['eng']=$this->input->post("english");
 			$mark_info['hin']=$this->input->post("hindi");
 			$mark_info['mal_san']=$this->input->post("mal_san");
@@ -137,8 +141,37 @@
 			$mark_info['fa']=$this->input->post("ass_type");
 			$mark_info['date']=date('Y-m-d H:i:s');
 			
+			if ($mark_info['eng']==0){ 
+				$mark_info['eng']=0.0000001;
+			}
+			
+			if ($mark_info['hin']==0){ 
+				$mark_info['hin']=0.0000001;
+			}
+			
+			if ($mark_info['mal_san']==0){ 
+				$mark_info['mal_san']=0.0000001;
+			}
+			
+			if ($mark_info['math']==0){ 
+				$mark_info['math']=0.0000001;
+			}
+			
+			if ($mark_info['science']==0){ 
+				$mark_info['science']=0.0000001;
+			}
+			
+			if ($mark_info['social_science']==0){ 
+				$mark_info['social_science']=0.0000001;
+			}
+			
+			if ($mark_info['gk']==0){ 
+				$mark_info['gk']=0.0000001;
+			}
+			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_mark($mark_info);
+			//echo $mark_info['gk'];
 			redirect('teacher/add_mark');		
 		
 		}
@@ -155,27 +188,48 @@
 		}
 		function register_evaluation(){
 			if($this->session->userdata('logged_in')){
-			$evaluation_info['stu_id']=$this->input->post("student_id");
-			$evaluation_info['reading']=$this->input->post("reading");
-			$evaluation_info['reading_compre']=$this->input->post("reading_comp");
-			$evaluation_info['spelling']=$this->input->post("spelling");
-			$evaluation_info['handwriting']=$this->input->post("hand_writing");
-			$evaluation_info['writen_exp']=$this->input->post("written_expression");
-			$evaluation_info['arith_math']=$this->input->post("arithmetic");
-			$evaluation_info['sub_content']=$this->input->post("subject_content");
-			$evaluation_info['remarks']=$this->input->post("remarks");
-			$evaluation_info['date']=$this->input->post("date");
 			
+			$evaluation_info['stu_id']=$this->input->post("s_name");
+			//$evaluation_info['stu_name']=$this->input->post("s_name");
+			$evaluation_info['reading']=$this->input->post("reading");
+			$evaluation_info['reading_det']=$this->input->post("reading_det");			
+			$evaluation_info['reading_compre']=$this->input->post("reading_comp");
+			$evaluation_info['reading_compre_det']=$this->input->post("reading_compre_det");
+			$evaluation_info['spelling']=$this->input->post("spelling");
+			$evaluation_info['spelling_det']=$this->input->post("spelling_det");
+			$evaluation_info['handwriting']=$this->input->post("hand_writing");
+			$evaluation_info['handwriting_det']=$this->input->post("handwriting_det");
+			$evaluation_info['writen_exp']=$this->input->post("written_expression");
+			$evaluation_info['writen_exp_det']=$this->input->post("written_det");
+			$evaluation_info['arith_math']=$this->input->post("arithmetic");
+			$evaluation_info['arith_math_det']=$this->input->post("arith_math_det");
+			$evaluation_info['sub_content']=$this->input->post("subject_content");
+			$evaluation_info['sub_content_det']=$this->input->post("sub_content_det");
+			$evaluation_info['remarks']=$this->input->post("remarks");
+			//$evaluation_info['daily_report']=$this->input->post("daily_report");
+			//$evaluation_info['clas_support']=$this->input->post("class_support");
+			//$evaluation_info['stu_name']=$this->input->post("s_name");
+			//$evaluation_info['date']=$this->input->post("date");
+			$dat=$_POST['l1'];
+			$mnth=$_POST['l2'];
+			$yr=$_POST['l3'];
+			$dt=$yr."/".$mnth."/".$dat;		
+
+
+		//$ins = date($insertdate);
+				$evaluation_info['date']=$dt;
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_evaluation($evaluation_info);
+			redirect('teacher/add_evaluation');
+		
 		}}
 		
 		function register_caserecord(){
 		if($this->session->userdata('logged_in')){
 			//$report_info['teach_id']=$this->input->post("teacher_id");
 			
-			$report_info['s_name']=$this->input->post("s_name");
+			$report_info['stu_id']=$this->input->post("name");
 			//$report_info['s_dob']=$this->input->post("dob");
 			//$report_info['s_gender']=$this->input->post("s_gender");
 			//$report_info['s_address']=$this->input->post("s_address");
@@ -220,7 +274,7 @@
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_caserecord($report_info);
-			//redirect('teacher/add_report');
+			redirect('teacher/add_report');
 			
 		}}
 

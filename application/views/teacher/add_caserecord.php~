@@ -10,7 +10,7 @@
 					echo '<select name="s_name">';
 					//echo '<option value="0">-- -- -- -</option>';
 					foreach ($query1 as $q){
-					echo '<option value="'.$q->stu_name.'">'.$q->stu_name.'</option>';
+					echo '<option value="'.$q->stu_id.'">'.$q->stu_name.'</option>';
 		
 					}
 					echo '</select>'
@@ -49,7 +49,7 @@
 		echo '<select name="school">';
 		//echo '<option value="0">-- -- -- -</option>';
 		foreach ($query2 as $q){
-		echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
+		echo '<option value="'.$q->scl_name.'">'.$q->scl_name.'</option>';
 		
 		}
 		echo '</select>'

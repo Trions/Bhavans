@@ -11,18 +11,54 @@
 				
 			
 </li>
-<li>			
-			<label for="student_id">Name:</label>
-			<input type="text" id="student_id" name="student_id"/>
-</li>
+<li>
+				<label for="name">Student Name</label>
+				<?php 
+					echo '<select name="s_name">';
+					//echo '<option value="0">-- -- -- -</option>';
+					foreach ($query1 as $q){
+					echo '<option value="'.$q->stu_id.'">'.$q->stu_name.'</option>';
+		
+					}
+					echo '</select>'
+				?>
 <br>
 
 <li>
 
 			
 			<label for="date"> Date:</label>
-			<input type="text" id="date" name="date"/>
-</li>
+			<select id="l1" name="l1">
+	<?php	
+	for($j=1;$j<=31;$j++)
+	{
+      echo "<option>$j</option>";
+      
+     }
+	
+     ?>
+    </select>
+      <select id="l2" name="l2">
+	  <?php	
+	   for($k=1;$k<=12;$k++)
+	    {
+           echo "<option>$k</option>";
+      
+         }
+		 
+       ?>
+            </select>
+      <select id="l3" name="l3">
+	  <?php
+			for($i=2013;$i>=1900;$i--)
+			{
+				echo "<option>$i</option>";
+			}
+			
+	  ?>        
+      </select>
+  </li>
+
 <br>
 <li>
 				<label> Reading:</label>
@@ -46,7 +82,11 @@
 <br>
 <li>
 </li>
+<li>
+				<label for="reading_det">Comments:</label>
+				<textarea rows="4" cols="50" name="reading_det" wrap="physical"></textarea><br />
 
+			</li>
 
 
 
@@ -72,6 +112,12 @@
 <br>
 <li>
 </li>
+			<li>
+				<label for="reading_compre_det">Comments:</label>
+				<textarea rows="4" cols="50" name="reading_compre_det" wrap="physical"></textarea><br />
+
+			</li>
+			
 
 </li>
 
@@ -97,6 +143,11 @@
 <br> 	 		
 <li>
 </li>
+		<li>
+				<label for="spelling_det">Comments:</label>
+				<textarea rows="4" cols="50" name="spelling_det" wrap="physical"></textarea><br />
+
+			</li>		
 
 </li>
 
@@ -122,7 +173,11 @@
 <br>
 <li>
 </li>
+			<li>
+				<label for="handwriting_det">Comments:</label>
+				<textarea rows="4" cols="50" name="handwriting_det" wrap="physical"></textarea><br />
 
+			</li>
 </li>
 <br>
 <li>
@@ -147,6 +202,11 @@
 <li>
 </li>
 
+				<li>
+				<label for="written_det">Comments:</label>
+				<textarea rows="4" cols="50" name="written_det" wrap="physical"></textarea><br />
+
+			</li>
 </li>
 <br>
 <li>
@@ -170,6 +230,12 @@
 <br>
 <li>
 </li>
+
+<li>
+				<label for="arith_math_det">Comments:</label>
+				<textarea rows="4" cols="50" name="arith_math_det" wrap="physical"></textarea><br />
+
+			</li>
 
 
 
@@ -196,12 +262,29 @@
 <br>
 <li>
 </li>
+<li>
+				<label for="sub_content_det">Comments:</label>
+				<textarea rows="4" cols="50" name="sub_content_det" wrap="physical"></textarea><br />
+
+			</li>
 <br>
 <li>
 	<label for="remarks">Remarks:</label>
-	<textarea rows="4" cols="40" name="remarks" wrap="physical"></textarea>:<br />
+	<textarea rows="4" cols="50" name="remarks" wrap="physical"></textarea>:<br />
 
 </li>
+<li>
+				<label for="class_support">Class support</label>
+				<textarea rows="4" cols="50" name="class_support" wrap="physical"></textarea><br />
+
+			<!--</li>
+			<li>
+				<label for="daily_report">Daily Report</label>
+				<textarea rows="4" cols="50" name="daily_report" wrap="physical"></textarea><br />
+
+			</li> -->
+
+
 
 	
 			<input type="submit" id="submit" name="submit" value="Submit"/>

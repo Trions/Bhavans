@@ -2,31 +2,49 @@
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
 <?php
- echo '<table border=1>';
- echo $query;
+ if($query==0){echo '<h3> No School to display </h3>';}
+ else{
+ echo '<tittle>Schools</tittle>';
+ echo '<table border=0 cellspacing=25>';
+ echo '<tr>
+ 	<th>School ID</th>
+ 	<th>chool Name</th>
+ 	<th>School Phone</th>
+ 	<th>School Address</th>
+ 	<th>Option</th>
+ 	</tr>';
  foreach ($query as $q)
  	{
 		//echo '<h1>' .$q->scl_id. '</h1>';
 		
 		echo '<tr>';
 		echo '<td>';
-		echo '<h1>' .$q->scl_id. '</h1>';
+		echo '<h3>' .$q->scl_id. '</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h1>' .$q->scl_name. '</h1>';
+		echo '<h3>' .$q->scl_name. '</h3>';
 		echo '</td>';
 		echo '<td>';
-		
+		echo '<h3>' .$q->scl_ph. '</h3>';
+		echo '</td>';
+		echo '<td>';
+		echo '<h3>' .$q->scl_add. '</h3>';
+		echo '</td>';
+		echo '<td>';
+		echo anchor('/coordinator/edit_school/'.$q->scl_id,'Update Information');
+		echo '</td>';
+		echo '<td>';
 		//echo '<a href="remove_school/'.$q->scl_id.'">Delete</a>';
 		//echo '<a href="remove_school/'.$q->scl_id.'" onclick="returm confirm("Sure?");">Delete</a>';
-		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete');
+		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete',array('onClick' => "return confirm('Are you sure you want to delete?')"));
 		echo '</td>';
 		echo '</tr>';
 
 		
 		
 	}
- echo '</table>'
+ echo '</table>';
+ 	}
 
 
  /*

@@ -18,7 +18,7 @@
 				?>
 			</li>
 			
-			<li>
+			<!--<li>
 				<label for="grade">Grade</label>
 				<?php 
 					echo '<select name="grade">';
@@ -29,7 +29,7 @@
 					}
 					echo '</select>'
 				?>
-			</li>
+			</li>-->
 			
 			<li>
 				<label for="english">English</label>
@@ -67,7 +67,7 @@
 			</li>
 			
 			<li>
-				<label>Tearm I</label>				
+				<label>Term I</label>				
 				<div class="sub_content">
 				<input type="radio" id="fa1" value="fa1" name="ass_type"/>
 				<label for="fa1">FA1</label>
@@ -79,7 +79,7 @@
 			</li>
 			
 			<li>
-				<label>Tearm II</label>				
+				<label>Term II</label>				
 				<div class="sub_content">
 				<input type="radio" id="fa3" value="fa3" name="ass_type"/>
 				<label for="fa3">FA3</label>

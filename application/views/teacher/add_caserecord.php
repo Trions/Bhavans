@@ -7,10 +7,10 @@
 			<li>
 				<label for="name">Student Name</label>
 				<?php 
-					echo '<select name="s_name">';
+					echo '<select name="name">';
 					//echo '<option value="0">-- -- -- -</option>';
 					foreach ($query1 as $q){
-					echo '<option value="'.$q->stu_name.'">'.$q->stu_name.'</option>';
+					echo '<option value="'.$q->stu_id.'">'.$q->stu_name.'</option>';
 		
 					}
 					echo '</select>'

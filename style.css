@@ -76,12 +76,14 @@ div.submenu
    background:#155FB0;
    text-decoration:none;
    color :white;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 
 }
 .side_bar a:active{
 		background:#155FB0;
 		text-decoration:none;
 		color: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 	}
 		
 	
@@ -130,6 +132,7 @@ div.submenu
  .main_content a:hover{
  	background:#155FB0;
  	color :white;
+ 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
  	}
  .main_content table{
  	

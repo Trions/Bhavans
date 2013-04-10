@@ -6,11 +6,6 @@
 		<ul>
 		
 			<li>
-				<label for="id">School Id</label>
-				<input type="text" id="id" name="school_id"/>
-			</li>
-			
-			<li>
 				<label for="name">School Name</label>
 				<input type="text" id="name" name="school_name"/>
 			</li>

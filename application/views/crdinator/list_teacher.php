@@ -18,13 +18,13 @@ if($query==0){echo '<h3> No Teachers to Display </h3>';}
 		echo '<tr>';
 		echo '<td><h4>';
 		//echo '<h1>';
-		echo anchor('/coordinator/list_teacher_info/'.$q->teacher_first_name,$q->teacher_first_name);
+		echo anchor('/coordinator/list_teacher_info/'.$q->teacher_id,$q->teacher_first_name);
 		echo '</h4></td>';
 		echo '<td><h4>';
 		echo anchor('/coordinator/edit_teacher/'.$q->teacher_id,'Update Information');
 		echo '</h4></td>';
 		echo '<td><h4>';	
-		echo anchor('/coordinator/remove_teacher/'.$q->teacher_first_name,'Delete');	
+		echo anchor('/coordinator/remove_teacher/'.$q->teacher_id,'Delete',array('onClick' => "return confirm('Delete Teacher?')"));	
 			
 		//echo '</h1>';
 		echo '</h4></td>';

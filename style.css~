@@ -68,7 +68,7 @@ div.submenu
  	margin:;
    width: 300; 
    text-decoration: none;
-   color: gray;
+   color: black;
  
  }
 
@@ -76,12 +76,14 @@ div.submenu
    background:#155FB0;
    text-decoration:none;
    color :white;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 
 }
 .side_bar a:active{
 		background:#155FB0;
 		text-decoration:none;
 		color: white;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 	}
 		
 	

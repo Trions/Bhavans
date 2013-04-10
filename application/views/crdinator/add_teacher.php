@@ -8,13 +8,10 @@
 <ul>
 <li>		
 				
-			<label for="fname">First Name</label>
+			<label for="fname">Name</label>
 			<input type="text" id="fname" name="fname"/>
 </li>
-<li>			
-			<label for="lname">Last Name</label>
-			<input type="text" id="lname" name="lname"/>
-</li>
+
 <li>
 				<label> Gender</label>
 				
@@ -45,8 +42,39 @@
 
 <li>
 			<label for="dob"> Date of Birth</label>
-			<input type="text" id="dob" name="dob"/>
 </li>
+			
+	<select id="l1" name="l1">
+	<?php	
+	for($j=1;$j<=31;$j++)
+	{
+      echo "<option>$j</option>";
+      
+     }
+	
+     ?>
+    </select>
+      <select id="l2" name="l2">
+	  <?php	
+	   for($k=1;$k<=12;$k++)
+	    {
+           echo "<option>$k</option>";
+      
+         }
+		 
+       ?>
+            </select>
+      <select id="l3" name="l3">
+	  <?php
+			for($i=2013;$i>=1900;$i--)
+			{
+				echo "<option>$i</option>";
+			}
+			
+	  ?>        
+      </select>
+  </li>
+
 <li>			
 
 			<label for="addtext">Address</label>
@@ -56,10 +84,7 @@
 			<label for="nat">Nationality</label>
 			<input type="text" id="nat" name="nationality"/>
 </li>
-<li>		
-			<label for="photo">Photo</label>
-			<input type="file" id="photo" name="photo"/>
-</li>
+
 <li>			
 			
 	

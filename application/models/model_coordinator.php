@@ -10,7 +10,7 @@
 			
 			//Automatically adding the teacher data to the login table 
 			$first=$teacher_info['teacher_first_name'];
-			$last=$teacher_info['teacher_last_name'];
+			//$last=$teacher_info['teacher_last_name'];
 			$username_password['lgin_name']="$first$last";
 			$username_password['lgin_pass']="password";
 			$username_password['lgin_cat']=2;
@@ -128,9 +128,14 @@
 			}
 		}
 
-		function list_student_info($name){
+		function list_student_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_student_registration', array('stu_name' => $name));
+			//$query = $this->db->get_where('tbl_student_registration', array('stu_id' => $id));
+			$this->db->select('*');
+			$this->db->from('tbl_student_registration');
+			$this->db->where('stu_id', $id); 
+			$this->db->join('tbl_school', 'tbl_school.scl_id = tbl_student_registration.stu_school');
+			$query = $this->db->get();
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -139,9 +144,9 @@
 			}
 		}
 		
-		function list_caserecord_info($name){
+		function list_caserecord_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_caserecord_special', array('s_name' => $name));
+			$query = $this->db->get_where('tbl_caserecord_special', array('stu_id' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -150,9 +155,9 @@
 			}
 		}
 
-		function list_teacher_info($fname){
+		function list_teacher_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_teacher', array('teacher_first_name' => $fname));
+			$query = $this->db->get_where('tbl_teacher', array('teacher_id' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -178,12 +183,12 @@
 
 
 
-		function delete_student($name){
-			$this->db->delete('tbl_student_registration', array('stu_name' => $name));
+		function delete_student($id){
+			$this->db->delete('tbl_student_registration', array('stu_id' => $id));
 
 		}
-		function delete_teacher($name){
-			$this->db->delete('tbl_teacher', array('teacher_first_name' => $name));
+		function delete_teacher($id){
+			$this->db->delete('tbl_teacher', array('teacher_id' => $id));
 
 		}
 		
@@ -230,6 +235,16 @@
 				}
 			return $data;
 			}		
+		}
+		function list_evaluation_info($id){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_coun_inst_obj_act', array('stu_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
 		}
 		
 		function view_marks_chart($id){

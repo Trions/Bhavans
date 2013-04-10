@@ -55,5 +55,14 @@ class Model_teacher extends CI_Model{
 			return $data;
 			}
 	}
+function add_evaluation_get(){
+		$query = $this->db->query('SELECT stu_id,stu_name,stu_grade FROM tbl_student_registration');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+	}
 
 }

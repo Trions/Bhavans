@@ -19,12 +19,13 @@ class Coordinator extends CI_Controller{
 		$this->session->sess_destroy();
 		redirect('login');
 	}
+	
 	function register_student(){
 	
 		if($this->session->userdata('logged_in')){	
 		
 			$this->form_validation->set_rules('','','');		
-			$stu_info['stu_rollno']=$this->input->post("rollno");
+			$stu_info['stu_school']=$this->input->post("school");
 			$stu_info['stu_name']=$this->input->post("name");
 			$stu_info['stu_grade']=$this->input->post("grade");
 		
@@ -56,14 +57,20 @@ class Coordinator extends CI_Controller{
 		if($this->session->userdata('logged_in')){
 	
 		$teacher_info['teacher_first_name']=$this->input->post("fname");
-		$teacher_info['teacher_last_name']=$this->input->post("lname");
+		//$teacher_info['teacher_last_name']=$this->input->post("lname");
 		$teacher_info['teacher_gender']=$this->input->post("gender");
 		$teacher_info['teacher_school']=$this->input->post("school");
-		$insertdate =$this->input->post("dob");
-		$teacher_info['teacher_dob']=date($insertdate);
+		$dat=$_POST['l1'];
+			$mnth=$_POST['l2'];
+			$yr=$_POST['l3'];
+			$dt=$yr."/".$mnth."/".$dat;			
+
+
+			//$ins = date($insertdate);
+			$teacher_info['teacher_dob']=$dt;//$thi
 		$teacher_info['teacher_address']=$this->input->post("address");
 		$teacher_info['teacher_nationality']=$this->input->post("nationality");
-		$teacher_info['teacher_photo']=$this->input->post("photo");
+		//$teacher_info['teacher_photo']=$this->input->post("photo");
 		$teacher_info['teacher_phone']=$this->input->post("phone");
 		$teacher_info['teacher_email']=$this->input->post("email");
 		
@@ -78,7 +85,6 @@ class Coordinator extends CI_Controller{
 	
 	function register_school(){
 		if($this->session->userdata('logged_in')){	
-		$school_info['scl_id']=$this->input->post("school_id");
 		$school_info['scl_name']=$this->input->post("school_name");
 		$school_info['scl_ph']=$this->input->post("phone");
 		$school_info['scl_add']=$this->input->post("add");
@@ -178,9 +184,11 @@ class Coordinator extends CI_Controller{
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
 		$data['query']=$this->model_coordinator->edit_student($id);
+		$data['query2']= $this->model_coordinator->add_teacher_get(); //to get the school name
 		$this->load->view('crdinator/update_student',$data);
 	}
 	}
+	
 	function edit_school($id){
 		if($this->session->userdata('logged_in')){	
 		$this->load->model('model_coordinator');
@@ -198,7 +206,7 @@ class Coordinator extends CI_Controller{
 	}
 	function update_student($id){
 		if($this->session->userdata('logged_in')){
-		$stu_info['stu_rollno']=$this->input->post("rollno");
+		$stu_info['stu_school']=$this->input->post("school");
 		$stu_info['stu_name']=$this->input->post("name");
 		$stu_info['stu_grade']=$this->input->post("grade");
 		
@@ -237,14 +245,14 @@ class Coordinator extends CI_Controller{
 	function update_teacher($id){
 		if($this->session->userdata('logged_in')){
 		$teacher_info['teacher_first_name']=$this->input->post("fname");
-		$teacher_info['teacher_last_name']=$this->input->post("lname");
+		//$teacher_info['teacher_last_name']=$this->input->post("lname");
 		$teacher_info['teacher_gender']=$this->input->post("gender");
 		$teacher_info['teacher_school']=$this->input->post("school");
 		$insertdate =$this->input->post("dob");
 		$teacher_info['teacher_dob']=date($insertdate);
 		$teacher_info['teacher_address']=$this->input->post("address");
 		$teacher_info['teacher_nationality']=$this->input->post("nationality");
-		$teacher_info['teacher_photo']=$this->input->post("photo");
+		///$teacher_info['teacher_photo']=$this->input->post("photo");
 		$teacher_info['teacher_phone']=$this->input->post("phone");
 		$teacher_info['teacher_email']=$this->input->post("email");
 		$teacher_info['teacher_id']=$id;
@@ -262,12 +270,15 @@ class Coordinator extends CI_Controller{
 		
 	}
 	}
+	
 	function add_student(){
-	if($this->session->userdata('logged_in')){
+	
 		if($this->session->userdata('logged_in')){
-			$this->load->view('crdinator/add_stu.php');
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->add_teacher_get(); //to get the school name
+			$this->load->view('crdinator/add_stu.php',$data);
 		}
-	}}
+	}
 	
 	function add_school(){
 	if($this->session->userdata('logged_in')){
@@ -290,15 +301,17 @@ class Coordinator extends CI_Controller{
 		redirect('coordinator/list_school');
 	
 	}}
-	function remove_student($name){
+	function remove_student($id){
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$this->model_coordinator->delete_student($name);
+		$this->model_coordinator->delete_student($id);
+		redirect('coordinator/list_student');
 	}}
-	function remove_teacher($name){
+	function remove_teacher($id){
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$this->model_coordinator->delete_teacher($name);
+		$this->model_coordinator->delete_teacher($id);
+		redirect('coordinator/list_teacher');
 	}
 	}
 	function remove_ref_student($id){
@@ -331,28 +344,36 @@ class Coordinator extends CI_Controller{
 	}
 	
 
-	function list_student_info($name){
+	function list_student_info($id){
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$data['query']=$this->model_coordinator->list_student_info($name);
+		$data['query']=$this->model_coordinator->list_student_info($id);
 		$this->load->view('crdinator/list_student_info',$data);
 	}
 	}
-	function list_teacher_info($fname){
+	function list_teacher_info($id){
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$data['query']=$this->model_coordinator->list_teacher_info($fname);
+		$data['query']=$this->model_coordinator->list_teacher_info($id);
 		$this->load->view('crdinator/list_teacher_info',$data);
 	}
 
 	}
 	
-	function list_caserecord_info($name){
+	function list_caserecord_info($id){
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$data['query']=$this->model_coordinator->list_caserecord_info($name);
+		
+		$data['query1']=$this->model_coordinator->list_caserecord_info($id);
+		$data['query2']=$this->model_coordinator->list_student_info($id);		
 		$this->load->view('crdinator/list_caserecord_info',$data);
 	}
+	}
+	function list_evaluation_info($id){
+		$this->load->model('model_coordinator');
+		$data['query1']=$this->model_coordinator->list_evaluation_info($id);
+		$data['query2']=$this->model_coordinator->list_student_info($id);		
+		$this->load->view('crdinator/list_evaluation_info',$data);
 	}
 }
 

@@ -16,8 +16,18 @@
 			</li>
 		
 			<li>
-				<label for="rollno">Roll No</label>
-				<input type="text" id="rollno" name="rollno"/>
+
+				<label for="school">School</label>
+				<?php 
+					echo '<select name="school">';
+					//echo '<option value="0">-- -- -- -</option>';
+					foreach ($query as $q){
+					echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
+		
+					}
+					echo '</select>'
+				?>
+	
 			</li>
 			<li>
 			

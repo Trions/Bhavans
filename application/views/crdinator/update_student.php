@@ -14,9 +14,20 @@
 			</li>
 		
 			<li>
-				<label for="rollno">Roll No</label>
-				<input type="text" id="rollno" name="rollno" value="'.$q->stu_rollno.'"/>
-			</li>
+
+				<label for="school">School</label>
+			 
+				<select name="school">';
+				//echo '<option value="'.$q->teacher_school.'">'.$q->teacher_school.'</option>';
+					foreach ($query2 as $q2){
+						echo '<option value="'.$q2->scl_id.'">'.$q2->scl_name.'</option>';
+		
+					}
+				echo '</select>';
+	
+				echo '   *';
+			echo '</li>	
+
 			<li>
 			
 				<label for="grade"> Grade</label>

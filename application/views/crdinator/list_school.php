@@ -7,11 +7,11 @@
  echo '<tittle>Schools</tittle>';
  echo '<table border=0 cellspacing=25>';
  echo '<tr>
- 	<th><h3>School ID</h3></th>
- 	<th><h3>School Name</h3></th>
- 	<th><h3>School Phone</h3></th>
- 	<th><h3>School Address</h3></th>
- 	<th><h3>Option</h3></th>
+ 	<th>School ID</th>
+ 	<th>chool Name</th>
+ 	<th>School Phone</th>
+ 	<th>School Address</th>
+ 	<th>Option</th>
  	</tr>';
  foreach ($query as $q)
  	{
@@ -36,7 +36,7 @@
 		echo '<td>';
 		//echo '<a href="remove_school/'.$q->scl_id.'">Delete</a>';
 		//echo '<a href="remove_school/'.$q->scl_id.'" onclick="returm confirm("Sure?");">Delete</a>';
-		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete');
+		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete',array('onClick' => "return confirm('Delete Record?')"));
 		echo '</td>';
 		echo '</tr>';
 
