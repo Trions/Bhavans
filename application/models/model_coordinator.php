@@ -194,6 +194,7 @@
 		
 		function delete_ref_student($id){
 			$this->db->delete('tbl_rem_referral', array('sl_no' => $id));
+			$this->db->delete('tbl_teacher_report', array('sl_no' => $id));
 
 		}
 		

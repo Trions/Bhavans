@@ -37,7 +37,7 @@ class Model_teacher extends CI_Model{
 	}
 		
 	function add_report_get(){
-		$query = $this->db->query('SELECT stu_id,stu_name FROM tbl_student_registration');
+		$query = $this->db->query('SELECT sl_no,student_name FROM tbl_rem_referral');
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;

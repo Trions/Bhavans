@@ -11,12 +11,12 @@
 			</li>
 			
 			<li>
-				<label for="name">Student Name</label>
+				<label for="sl_no">Student Name</label>
 				<?php 
-					echo '<select name="name">';
+					echo '<select name="sl_no">';
 					//echo '<option value="0">-- -- -- -</option>';
 					foreach ($query as $q){
-					echo '<option value="'.$q->stu_id.'">'.$q->stu_name.'</option>';
+					echo '<option value="'.$q->sl_no.'">'.$q->student_name.'</option>';
 		
 					}
 					echo '</select>'

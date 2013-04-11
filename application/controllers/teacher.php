@@ -102,11 +102,12 @@
 		function register_report(){
 		if($this->session->userdata('logged_in')){
 			//$report_info['teach_id']=$this->input->post("teacher_id");
+			$report_info['sl_no']=$this->input->post("sl_no");
 			$report_info['teach_id']=$this->session->userdata('user_id');
 			$report_info['teach_subject']=$this->input->post("teacher_subject");
 			$report_info['teach_view_o_stu_parnt']=$this->input->post("about_parent");
 			$report_info['cmt_on_addi_info']=$this->input->post("add_info");
-			$report_info['new_stu_name']=$this->input->post("name");
+			//$report_info['new_stu_name']=$this->input->post("name");
 			$report_info['new_stu_grade']=$this->input->post("grade");
 			$report_info['cls_rm_beha']=$this->input->post("behaviour");
 			$report_info['peer_inte']=$this->input->post("interaction");
@@ -139,6 +140,8 @@
 			$mark_info['social_science']=$this->input->post("social_science");
 			$mark_info['gk']=$this->input->post("gk");
 			$mark_info['fa']=$this->input->post("ass_type");
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
 			$mark_info['date']=date('Y-m-d H:i:s');
 			
 			if ($mark_info['eng']==0){ 

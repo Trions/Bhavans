@@ -9,14 +9,14 @@
  foreach ($query as $q)
  	{
 		
-		echo '<tr>';
+		/*echo '<tr>';
 		echo '<td>';
 		echo '<h3>Student Name :</h3>';
 		echo '</td>';
 		echo '<td>';
 		echo '<h4>' .$q->new_stu_name. '</h4>';
 		echo '</td>';
-		
+		*/
 		echo '<tr>';
 		echo '<td>';
 		echo '<h3>Student Grade :</h3>';
