@@ -29,15 +29,15 @@
 		echo '<h3>School :</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h4>' .$q->school. '</h4>';
+		echo '<h4>' .$q->scl_name. '</h4>';
 		echo '</td>';
 		
 		echo '<tr>';
 		echo '<td>';
-		echo '<h3>Referred Teacher ID :</h3>';
+		echo '<h3>Referred Teacher Name :</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h4>' .$q->teacher_id. '</h4>';
+		echo '<h4>' .$q->teacher_first_name. '</h4>';
 		echo '</td>';
 		
 		echo '<tr>';

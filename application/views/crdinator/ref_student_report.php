@@ -22,15 +22,15 @@
 		echo '<h3>Student Grade :</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h4>' .$q->new_stu_grade. '</h4>';
+		echo '<h4>' .$q->grade. '</h4>';
 		echo '</td>';
 				
 		echo '<tr>';
 		echo '<td>';
-		echo '<h3>Teacher id :</h3>';
+		echo '<h3>Teacher Name :</h3>';
 		echo '</td>';
 		echo '<td>';
-		echo '<h4>' .$q->teach_id. '</h4>';
+		echo '<h4>' .$q->teacher_first_name. '</h4>';
 		echo '</td>';
 		
 		echo '<tr>';

@@ -23,10 +23,10 @@
 				?>
 			</li>
 			
-			<li>
+			<!--<li>
 				<label for="grade">Grade</label>
 				<input type="text" id="grade" name="grade"/>
-			</li>
+			</li>-->
 			
 			<li>
 				<label for="about_parent">View About Student Parent</label>
@@ -98,10 +98,10 @@
 				<textarea id="remarks" name="remarks"> </textarea>
 			</li>
 			
-			<li>
+			<!--<li>
 				<label for="date"> Date</label>
 				<input type="text" id="date" name="date"/>
-			</li>
+			</li>-->
 			
 			<li>
 			

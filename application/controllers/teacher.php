@@ -6,7 +6,11 @@
 		
 		function index(){
 		if($this->session->userdata('logged_in')){
-			$this->load->view('teacher/Home.php');
+		
+			$this->load->model('model_message');
+			$data['query']=$this->model_message->retreve_messages();
+			//$this->load->view('crdinator/Home.php',$data);
+			$this->load->view('teacher/Home.php',$data);
 		}
 		}
 		
@@ -108,7 +112,7 @@
 			$report_info['teach_view_o_stu_parnt']=$this->input->post("about_parent");
 			$report_info['cmt_on_addi_info']=$this->input->post("add_info");
 			//$report_info['new_stu_name']=$this->input->post("name");
-			$report_info['new_stu_grade']=$this->input->post("grade");
+			//$report_info['new_stu_grade']=$this->input->post("grade");
 			$report_info['cls_rm_beha']=$this->input->post("behaviour");
 			$report_info['peer_inte']=$this->input->post("interaction");
 			$report_info['cls_parti']=$this->input->post("participation");
@@ -118,9 +122,12 @@
 			$report_info['strengths']=$this->input->post("strengths");
 			$report_info['perfo_lst_yr']=$this->input->post("ly_performance");
 			$report_info['ny_rmrks']=$this->input->post("remarks");
-			$insertdate =$this->input->post("date");
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
+			$report_info['date']=date('Y-m-d H:i:s');
+			/*$insertdate =$this->input->post("date");
 			$ins = date($insertdate);
-			$report_info['date']=$ins;
+			$report_info['date']=$ins;*/
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_report($report_info);
@@ -140,6 +147,7 @@
 			$mark_info['social_science']=$this->input->post("social_science");
 			$mark_info['gk']=$this->input->post("gk");
 			$mark_info['fa']=$this->input->post("ass_type");
+			
 			$timezone = "Asia/Calcutta";
 			date_default_timezone_set($timezone);
 			$mark_info['date']=date('Y-m-d H:i:s');

@@ -11,7 +11,9 @@ class Coordinator extends CI_Controller{
 	
 		if($this->session->userdata('logged_in')){
 			
-			$this->load->view('crdinator/Home.php');
+			$this->load->model('model_message');
+			$data['query']=$this->model_message->retreve_messages();
+			$this->load->view('crdinator/Home.php',$data);
 		}
 	}
 	

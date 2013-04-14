@@ -11,7 +11,7 @@
 			//Automatically adding the teacher data to the login table 
 			$first=$teacher_info['teacher_first_name'];
 			//$last=$teacher_info['teacher_last_name'];
-			$username_password['lgin_name']="$first$last";
+			$username_password['lgin_name']="$first";
 			$username_password['lgin_pass']="password";
 			$username_password['lgin_cat']=2;
 			$username_password['lgin_id'] = mysql_insert_id();
@@ -119,7 +119,13 @@
 
 		function ref_student_info($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
-			$query = $this->db->get_where('tbl_rem_referral', array('sl_no' => $id));
+			//$query = $this->db->get_where('tbl_rem_referral', array('sl_no' => $id));
+			$this->db->select('*');
+			$this->db->from('tbl_rem_referral');
+			$this->db->where('tbl_rem_referral.sl_no', $id); 
+			$this->db->join('tbl_school', 'tbl_school.scl_id = tbl_rem_referral.school');
+			$this->db->join('tbl_teacher', 'tbl_teacher.teacher_id = tbl_rem_referral.teacher_id');
+			$query = $this->db->get();
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -167,7 +173,13 @@
 		}
 		
 		function ref_student_report($id){
-		 	$query = $this->db->get_where('tbl_teacher_report', array('sl_no' => $id));
+		 	//$query = $this->db->get_where('tbl_teacher_report', array('sl_no' => $id));
+		 	$this->db->select('*');
+			$this->db->from('tbl_teacher_report');
+			$this->db->where('tbl_teacher_report.sl_no', $id); 
+			$this->db->join('tbl_rem_referral', 'tbl_rem_referral.sl_no = tbl_teacher_report.sl_no');
+			$this->db->join('tbl_teacher', 'tbl_teacher.teacher_id = tbl_teacher_report.teach_id');
+			$query = $this->db->get();
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
