@@ -25,6 +25,9 @@ class Model_teacher extends CI_Model{
 	function register_caserecord($report_info){
 		$this->db->insert('tbl_caserecord_special',$report_info);
 	}
+	function register_daily_report($daily_info){
+		$this->db->insert('tbl_daily_report',$daily_info);
+	}
 	
 	function add_referral_get(){
 		$query = $this->db->query('SELECT scl_id,scl_name FROM tbl_school');
@@ -37,7 +40,7 @@ class Model_teacher extends CI_Model{
 	}
 		
 	function add_report_get(){
-		$query = $this->db->query('SELECT stu_id,stu_name FROM tbl_student_registration');
+		$query = $this->db->query('SELECT sl_no,student_name FROM tbl_rem_referral');
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
@@ -47,6 +50,16 @@ class Model_teacher extends CI_Model{
 	}
 	
 	function add_mark_get(){
+		$query = $this->db->query('SELECT stu_id,stu_name,stu_grade FROM tbl_student_registration');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+	}
+
+	function add_daily_report(){
 		$query = $this->db->query('SELECT stu_id,stu_name,stu_grade FROM tbl_student_registration');
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){

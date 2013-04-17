@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Enter Student Report</title>
 <?php $this->load->view('teacher/teacher_header.php');?>
 <?php $this->load->view('teacher/teacher_sidebar.php');?>
 	<div class="main_content">
@@ -7,7 +10,8 @@
 		<ul>
 			<li>
 				<label for="teacher_subject">Teacher Subject</label>
-				<input type="text" id="teacher_subject" name="teacher_subject"/>
+				<input type="text" id="teacher_subject" name="teacher_subject" value="<?php echo set_value('teacher_subject');?>"/>
+				<?php echo form_error('teacher_subject', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
@@ -31,13 +35,15 @@
 			<li>
 				<label for="about_parent">View About Student Parent</label>
 				<span style="font-size:15">   </span>
-				<textarea id="about_parent" name="about_parent"></textarea>
+				<textarea id="about_parent" name="about_parent"><?php echo set_value('about_parent');?></textarea>
+				<?php echo form_error('about_parent', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="add_info">Additional Information</label>
 				<span style="font-size:15">   </span>
-				<textarea id="add_info" name="add_info"></textarea>
+				<textarea id="add_info" name="add_info"><?php echo set_value('add_info');?></textarea>
+				<?php echo form_error('add_info', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			
@@ -47,49 +53,57 @@
 			<li>
 				<label for="behaviour">Class Room Behaviour</label>
 				<span style="font-size:15">   </span>
-				<textarea id="behaviour" name="behaviour"> </textarea>
+				<textarea id="behaviour" name="behaviour"><?php echo set_value('behaviour');?> </textarea>
+				<?php echo form_error('behaviour', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="interaction">Peer Interaction</label>
 				<span style="font-size:15">   </span>
-				<textarea id="interaction" name="interaction"> </textarea>
+				<textarea id="interaction" name="interaction"><?php echo set_value('interaction');?> </textarea>
+				<?php echo form_error('interaction', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="participation">Class Participation</label>
 				<span style="font-size:15">   </span>
-				<textarea id="participation" name="participation"> </textarea>
+				<textarea id="participation" name="participation"><?php echo set_value('participation');?> </textarea>
+				<?php echo form_error('participation', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="follow">Ability to Follow Instructions</label>
 				<span style="font-size:15">   </span>
-				<textarea id="follow" name="follow"> </textarea>
+				<textarea id="follow" name="follow"><?php echo set_value('follow');?> </textarea>
+				<?php echo form_error('follow', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="attcon">Attention and Concentration</label>
 				<span style="font-size:15">   </span>
-				<textarea id="attcon" name="attcon"> </textarea>
+				<textarea id="attcon" name="attcon"><?php echo set_value('attcon');?> </textarea>
+				<?php echo form_error('attcon', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="performance">Academic Performance</label>
 				<span style="font-size:15">   </span>
-				<textarea id="performance" name="performance"> </textarea>
+				<textarea id="performance" name="performance"><?php echo set_value('performance');?> </textarea>
+				<?php echo form_error('performance', '<div class="error">', '</div>'); ?>
 			</li>
 						
 			<li>
 				<label for="strengths">Strengths</label>
 				<span style="font-size:15">   </span>
-				<textarea id="strengths" name="strengths"> </textarea>
+				<textarea id="strengths" name="strengths"><?php echo set_value('strengths');?> </textarea>
+				<?php echo form_error('strengths', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="ly_performance">Performance During Last Academic Year</label>
 				<span style="font-size:15">   </span>
-				<textarea id="ly_performance" name="ly_performance"> </textarea>
+				<textarea id="ly_performance" name="ly_performance"><?php echo set_value('ly_performance');?> </textarea>
+				<?php echo form_error('ly_performance', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>

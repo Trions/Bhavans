@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Student List </title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
@@ -32,7 +35,7 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		echo '</h4></td>';
 		
 		echo '<td><h4>';
-		echo anchor('/coordinator/list_evaluation_info/'.$q->stu_id,'Evaluation record');
+		echo anchor('/coordinator/list_evaluation_monthly/'.$q->stu_id,'Evaluation record');
 		echo '</h4></td>';
 		
 		echo '<td><h4>';

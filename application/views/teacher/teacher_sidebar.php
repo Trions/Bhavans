@@ -6,6 +6,7 @@
 			<a href="<?php echo base_url()?>teacher/add_evaluation">Evaluate Student</a>
 			<a href="<?php echo base_url()?>teacher/add_mark">Enter Marks</a>
 			<a href="<?php echo base_url()?>teacher/add_caserecord">Add Student Case Record</a>
+			<a href="<?php echo base_url()?>teacher/add_daily_report">Add Daily Report</a>
 			<a href="<?php echo base_url()?>message/messages">Message</a>
 
 		</div>

@@ -24,6 +24,14 @@ foreach ($query as $q)
 		
 		echo '<tr>';
 		echo '<td>';
+		echo '<h3>School 		:</h3>';
+		echo '</td>';
+		echo '<td>';
+		echo '<h4>' .$q->scl_name. '</43>';
+		echo '</td>';
+		
+		echo '<tr>';
+		echo '<td>';
 		echo '<h3>Grade 		:</h3>';
 		echo '</td>';
 		echo '<td>';
@@ -120,7 +128,7 @@ foreach ($query as $q)
 	//echo "Subject Name: $row->subject_name <br/> \n";
   
 	//echo "Subject total: $row->subject_totalmark <br />\n";
-}
+}}
 
 echo "</table>";
 ?>

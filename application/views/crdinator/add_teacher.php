@@ -1,15 +1,19 @@
+<html>
+<head>
+<title>Add Teacher </title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 	<div class="main_content">
-
-		<form name="teacher_reg" id="teacher_reg"method="post" action="<?php echo base_url();?>coordinator/register_teacher">
+	<form name="teacher_reg" id="teacher_reg" method="post" action="<?php echo base_url();?>coordinator/register_teacher">
+	
 		<fieldset>
 			
 <ul>
 <li>		
 				
 			<label for="fname">Name</label>
-			<input type="text" id="fname" name="fname"/>
+			<input type="text" id="fname" name="fname"value="<?php echo set_value('fname');?>"/>
+			<?php echo form_error('fname', '<div class="error">', '</div>'); ?>
 </li>
 
 <li>
@@ -22,6 +26,7 @@
 			 
 			   <input type="radio" id="gender_female" value="0" name="gender"  />
 				<label for="gender_female">Female</label>
+				<?php echo form_error('gender', '<div class="error">', '</div>'); ?>
 				
 </li>
 
@@ -42,7 +47,6 @@
 
 <li>
 			<label for="dob"> Date of Birth</label>
-</li>
 			
 	<select id="l1" name="l1">
 	<?php	
@@ -66,7 +70,7 @@
             </select>
       <select id="l3" name="l3">
 	  <?php
-			for($i=2013;$i>=1900;$i--)
+			for($i=2013;$i>=1950;$i--)
 			{
 				echo "<option>$i</option>";
 			}
@@ -77,23 +81,26 @@
 
 <li>			
 
-			<label for="addtext">Address</label>
-			<textarea id="addtext" name="address"> </textarea>
+			<label for="address">Address</label>
+			<textarea id="address" name="address"><?php echo set_value('address');?> </textarea>
+			<?php echo form_error('address', '<div class="error">', '</div>'); ?>
 </li>
 <li>
 			<label for="nat">Nationality</label>
-			<input type="text" id="nat" name="nationality"/>
+			<input type="text" id="nationality" name="nationality" value="<?php echo set_value('nationality');?>"/>
 </li>
 
 <li>			
 			
 	
-			<label for="ph">Phone</label>
-			<input type="text" id="ph" name="phone"/>
+			<label for="phone">Phone</label>
+			<input type="text" id="phone" name="phone" value="<?php echo set_value('phone');?>"/>
+			<?php echo form_error('phone', '<div class="error">', '</div>'); ?>
 </li>
 <li>
 			<label for="email">Email</label>
-			<input type="text" id="email" name="email"/>
+			<input type="text" id="email" name="email" value="<?php echo set_value('email');?>"/>
+			<?php echo form_error('email', '<div class="error">', '</div>'); ?>
 </li>
 <li>			
 			<input type="submit" id="submit" name="submit" value="Submit" />
@@ -103,5 +110,5 @@
 </ul>			
 
 		</fieldset>		
-	</div>
+	
 </div>

@@ -1,8 +1,6 @@
-<html>
-<head>
-<title> </title>
 
-	<script type="text/javascript" src="http://localhost/codeigniter/datepickercontrol.js"></script>
+
+<script type="text/javascript" src="http://localhost/codeigniter/datepickercontrol.js"></script>
 	
 
 
@@ -57,8 +55,8 @@ $(".account").attr('id', '');
 <body>
 <div class="container">
 	<div class="title_bar">
-				<h2>Athena</h2>
-				<br>
+		<div class="title_image">
+		</div>
 	</div>
 	
 	
@@ -72,28 +70,11 @@ $(".account").attr('id', '');
 			<div class="submenu" style="display: none; ">
 
 			  <ul class="root">
-				<li >
-				      <a href="#Dashboard" >Dashboard</a>
-				</li>
-
-	    
-			        <li >
-	      			      <a href="#Profile" >Profile</a>
-	    			</li>
-	   			<li >
-
-	      				<a href="#settings">Settings</a>
-	    			</li>
-	   
-
-	    			<li>
-	    				  <a href="#feedback">Send Feedback</a>
-	    			</li>
 
 
 
 	    			<li>
-	      				<a href="#signout">Sign Out</a>
+	      				<a href="<?php echo base_url();?>coordinator/sign_out">Sign Out</a>
 	    			</li>
 	  		</ul>
 		</div>

@@ -6,7 +6,11 @@
 		
 		function index(){
 		if($this->session->userdata('logged_in')){
-			$this->load->view('teacher/Home.php');
+		
+			$this->load->model('model_message');
+			$data['query']=$this->model_message->retreve_messages();
+			//$this->load->view('crdinator/Home.php',$data);
+			$this->load->view('teacher/Home.php',$data);
 		}
 		}
 		
@@ -50,7 +54,7 @@
 		function add_caserecord(){
 		if($this->session->userdata('logged_in')){
 			$this->load->model('model_teacher');
-			$data['query1']= $this->model_teacher->add_report_get();
+			$data['query1']= $this->model_teacher->add_mark_get();
 			$data['query2']= $this->model_teacher->add_referral_get();
 			$this->load->view('teacher/add_caserecord.php',$data,$data);
 		}}
@@ -62,6 +66,15 @@
 			$this->load->view('teacher/add_mark.php',$data);
 		}
 		}
+
+		function add_daily_report(){
+		if($this->session->userdata('logged_in')){
+			$this->load->model('model_teacher');
+			$data['query']= $this->model_teacher->add_daily_report_get();
+			$this->load->view('teacher/add_daily_report.php',$data);
+		}
+		}
+		
 		function register_referral(){
 			if($this->session->userdata('logged_in')){
 			$referral_info['student_name']=$this->input->post("name");
@@ -101,12 +114,13 @@
 		function register_report(){
 		if($this->session->userdata('logged_in')){
 			//$report_info['teach_id']=$this->input->post("teacher_id");
+			$report_info['sl_no']=$this->input->post("sl_no");
 			$report_info['teach_id']=$this->session->userdata('user_id');
 			$report_info['teach_subject']=$this->input->post("teacher_subject");
 			$report_info['teach_view_o_stu_parnt']=$this->input->post("about_parent");
 			$report_info['cmt_on_addi_info']=$this->input->post("add_info");
-			$report_info['new_stu_name']=$this->input->post("name");
-			$report_info['new_stu_grade']=$this->input->post("grade");
+			//$report_info['new_stu_name']=$this->input->post("name");
+			//$report_info['new_stu_grade']=$this->input->post("grade");
 			$report_info['cls_rm_beha']=$this->input->post("behaviour");
 			$report_info['peer_inte']=$this->input->post("interaction");
 			$report_info['cls_parti']=$this->input->post("participation");
@@ -116,9 +130,12 @@
 			$report_info['strengths']=$this->input->post("strengths");
 			$report_info['perfo_lst_yr']=$this->input->post("ly_performance");
 			$report_info['ny_rmrks']=$this->input->post("remarks");
-			$insertdate =$this->input->post("date");
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
+			$report_info['date']=date('Y-m-d H:i:s');
+			/*$insertdate =$this->input->post("date");
 			$ins = date($insertdate);
-			$report_info['date']=$ins;
+			$report_info['date']=$ins;*/
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_report($report_info);
@@ -129,7 +146,7 @@
 		function register_mark(){
 		if($this->session->userdata('logged_in')){
 			$mark_info['stu_id']=$this->input->post("stu_id");
-			$mark_info['stu_grade']=$this->input->post("grade");
+			//$mark_info['stu_grade']=$this->input->post("grade");
 			$mark_info['eng']=$this->input->post("english");
 			$mark_info['hin']=$this->input->post("hindi");
 			$mark_info['mal_san']=$this->input->post("mal_san");
@@ -138,10 +155,42 @@
 			$mark_info['social_science']=$this->input->post("social_science");
 			$mark_info['gk']=$this->input->post("gk");
 			$mark_info['fa']=$this->input->post("ass_type");
+			
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
 			$mark_info['date']=date('Y-m-d H:i:s');
+			
+			if ($mark_info['eng']==0){ 
+				$mark_info['eng']=0.0000001;
+			}
+			
+			if ($mark_info['hin']==0){ 
+				$mark_info['hin']=0.0000001;
+			}
+			
+			if ($mark_info['mal_san']==0){ 
+				$mark_info['mal_san']=0.0000001;
+			}
+			
+			if ($mark_info['math']==0){ 
+				$mark_info['math']=0.0000001;
+			}
+			
+			if ($mark_info['science']==0){ 
+				$mark_info['science']=0.0000001;
+			}
+			
+			if ($mark_info['social_science']==0){ 
+				$mark_info['social_science']=0.0000001;
+			}
+			
+			if ($mark_info['gk']==0){ 
+				$mark_info['gk']=0.0000001;
+			}
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_mark($mark_info);
+			//echo $mark_info['gk'];
 			redirect('teacher/add_mark');		
 		
 		}
@@ -180,17 +229,21 @@
 			//$evaluation_info['clas_support']=$this->input->post("class_support");
 			//$evaluation_info['stu_name']=$this->input->post("s_name");
 			//$evaluation_info['date']=$this->input->post("date");
-			$dat=$_POST['l1'];
+			/*$dat=$_POST['l1'];
 			$mnth=$_POST['l2'];
 			$yr=$_POST['l3'];
 			$dt=$yr."/".$mnth."/".$dat;		
 
 
 		//$ins = date($insertdate);
-				$evaluation_info['date']=$dt;
+				$evaluation_info['date']=$dt;*/
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
+			$evaluation_info['date']=date('Y-m-d H:i:s');
 			
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_evaluation($evaluation_info);
+			redirect('teacher/add_evaluation');
 		
 		}}
 		
@@ -204,6 +257,10 @@
 			//$report_info['s_address']=$this->input->post("s_address");
 			$report_info['school']=$this->input->post("school");
 			$report_info['clas']=$this->input->post("class");
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
+			$report_info['date']=date('Y-m-d H:i:s');
+			
 			$report_info['info_provider']=$this->input->post("info_provider");
 			$report_info['m_name']=$this->input->post("m_name");
 			$report_info['m_age']=$this->input->post("m_age");
@@ -243,8 +300,24 @@
 						
 			$this->load->model('model_teacher');
 			$this->model_teacher->register_caserecord($report_info);
-			//redirect('teacher/add_report');
+			redirect('teacher/add_report');
 			
+		}}
+		
+		function register_daily_report(){
+			if($this->session->userdata('logged_in')){
+			
+			$daily_info['stu_id']=$this->input->post("stu_id");
+			$daily_info['report']=$this->input->post("report");
+			
+			$timezone = "Asia/Calcutta";
+			date_default_timezone_set($timezone);
+			$daily_info['date']=date('Y-m-d H:i:s');
+			
+			$this->load->model('model_teacher');
+			$this->model_teacher->register_daily_report($daily_info);
+			redirect('teacher/add_daily_report');
+		
 		}}
 
 

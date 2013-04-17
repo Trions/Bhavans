@@ -144,7 +144,7 @@ div.submenu
  		}
  	
  	.sub_content label{
- 		width: 100;
+ 		width: 100;padding-left: 100px;
  		
  		}
 
@@ -454,9 +454,6 @@ background-color: lightblue;
 
 }
 
-.message_container label:hover {
-	background-color: red;
-	}
 	
 .sender_name{
 	color: #00529B;
@@ -470,6 +467,9 @@ background-color: lightblue;
 	padding:10px;
 	margin:10px;
 }
-    box-shadow: 
-        inset 0 0 5px rgba(0,0,0,0.1),
-        inset 0 3px 2px rgba(0,0,0,0.1);
+
+.error {
+	 color:red;
+	 display:inline;
+	 font-size: 15px;
+}

@@ -1,6 +1,4 @@
-<html>
-<head>
-<title> </title>
+
 
 	<script type="text/javascript" src="http://localhost/codeigniter/datepickercontrol.js"></script>
 	
@@ -64,7 +62,7 @@ $(".account").attr('id', '');
 	
 	
 	<div class="titleheader">
-	
+		
 		<div class="dropdown">
 			<a class="account" >
 				<span>My Account</span>
@@ -73,7 +71,9 @@ $(".account").attr('id', '');
 
 			  <ul class="root">
 
-
+				<li>
+	      				<a href="<?php echo base_url();?>coordinator">Home</a>
+	    			</li>
 
 	    			<li>
 	      				<a href="<?php echo base_url();?>coordinator/sign_out">Sign Out</a>

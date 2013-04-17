@@ -1,3 +1,6 @@
+<html>
+<head>
+<title> Reffered Students List</title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
@@ -28,7 +31,7 @@ if($query==0){echo '<h3> No Students Referred </h3>';}
 		echo '</h5>';
 		echo '</td>';
 		echo '<td><h5>';	
-		echo anchor('/coordinator/remove_ref_student/'.$q->sl_no,'Delete',array('onClick' => "return confirm('Are you sure you want to delete?')"));
+		echo anchor('/coordinator/remove_ref_student/'.$q->sl_no,'Delete',array('onClick' => "return confirm('Delete Record?')"));
 		//echo '</h1>';
 		echo '</h5></td>';
 		echo '</tr>';

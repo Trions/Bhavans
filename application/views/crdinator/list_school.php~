@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Schools List </title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
@@ -36,7 +39,7 @@
 		echo '<td>';
 		//echo '<a href="remove_school/'.$q->scl_id.'">Delete</a>';
 		//echo '<a href="remove_school/'.$q->scl_id.'" onclick="returm confirm("Sure?");">Delete</a>';
-		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete',array('onClick' => "return confirm('Are you sure you want to delete?')"));
+		echo anchor('/coordinator/remove_school/'.$q->scl_id,'Delete',array('onClick' => "return confirm('Delete Record?')"));
 		echo '</td>';
 		echo '</tr>';
 

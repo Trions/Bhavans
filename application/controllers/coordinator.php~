@@ -11,7 +11,9 @@ class Coordinator extends CI_Controller{
 	
 		if($this->session->userdata('logged_in')){
 			
-			$this->load->view('crdinator/Home.php');
+			$this->load->model('model_message');
+			$data['query']=$this->model_message->retreve_messages();
+			$this->load->view('crdinator/Home.php',$data);
 		}
 	}
 	
@@ -19,12 +21,13 @@ class Coordinator extends CI_Controller{
 		$this->session->sess_destroy();
 		redirect('login');
 	}
+	
 	function register_student(){
 	
 		if($this->session->userdata('logged_in')){	
 		
 			$this->form_validation->set_rules('','','');		
-			$stu_info['stu_rollno']=$this->input->post("rollno");
+			$stu_info['stu_school']=$this->input->post("school");
 			$stu_info['stu_name']=$this->input->post("name");
 			$stu_info['stu_grade']=$this->input->post("grade");
 		
@@ -84,7 +87,6 @@ class Coordinator extends CI_Controller{
 	
 	function register_school(){
 		if($this->session->userdata('logged_in')){	
-		$school_info['scl_id']=$this->input->post("school_id");
 		$school_info['scl_name']=$this->input->post("school_name");
 		$school_info['scl_ph']=$this->input->post("phone");
 		$school_info['scl_add']=$this->input->post("add");
@@ -184,9 +186,11 @@ class Coordinator extends CI_Controller{
 	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
 		$data['query']=$this->model_coordinator->edit_student($id);
+		$data['query2']= $this->model_coordinator->add_teacher_get(); //to get the school name
 		$this->load->view('crdinator/update_student',$data);
 	}
 	}
+	
 	function edit_school($id){
 		if($this->session->userdata('logged_in')){	
 		$this->load->model('model_coordinator');
@@ -204,7 +208,7 @@ class Coordinator extends CI_Controller{
 	}
 	function update_student($id){
 		if($this->session->userdata('logged_in')){
-		$stu_info['stu_rollno']=$this->input->post("rollno");
+		$stu_info['stu_school']=$this->input->post("school");
 		$stu_info['stu_name']=$this->input->post("name");
 		$stu_info['stu_grade']=$this->input->post("grade");
 		
@@ -250,7 +254,7 @@ class Coordinator extends CI_Controller{
 		$teacher_info['teacher_dob']=date($insertdate);
 		$teacher_info['teacher_address']=$this->input->post("address");
 		$teacher_info['teacher_nationality']=$this->input->post("nationality");
-		$teacher_info['teacher_photo']=$this->input->post("photo");
+		///$teacher_info['teacher_photo']=$this->input->post("photo");
 		$teacher_info['teacher_phone']=$this->input->post("phone");
 		$teacher_info['teacher_email']=$this->input->post("email");
 		$teacher_info['teacher_id']=$id;
@@ -268,12 +272,15 @@ class Coordinator extends CI_Controller{
 		
 	}
 	}
+	
 	function add_student(){
-	if($this->session->userdata('logged_in')){
+	
 		if($this->session->userdata('logged_in')){
-			$this->load->view('crdinator/add_stu.php');
+			$this->load->model('model_coordinator');
+			$data['query']= $this->model_coordinator->add_teacher_get(); //to get the school name
+			$this->load->view('crdinator/add_stu.php',$data);
 		}
-	}}
+	}
 	
 	function add_school(){
 	if($this->session->userdata('logged_in')){
@@ -364,11 +371,28 @@ class Coordinator extends CI_Controller{
 		$this->load->view('crdinator/list_caserecord_info',$data);
 	}
 	}
-	function list_evaluation_info($id){
+	function list_daily_report($id){
+	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$data['query1']=$this->model_coordinator->list_evaluation_info($id);
+		
+		$data['query']=$this->model_coordinator->list_daily_report($id);
+				
+		$this->load->view('crdinator/list_daily_report',$data);
+	}
+	}
+	function list_evaluation_info($id,$date){
+		$this->load->model('model_coordinator');
+		$data['query1']=$this->model_coordinator->list_evaluation_info($id,$date);
 		$data['query2']=$this->model_coordinator->list_student_info($id);		
 		$this->load->view('crdinator/list_evaluation_info',$data);
+		
+		
+	}
+	function list_evaluation_monthly($id){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->list_evaluation_monthly($id);
+				
+		$this->load->view('crdinator/list_evaluation_monthly',$data);
 	}
 }
 

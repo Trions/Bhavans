@@ -1,6 +1,4 @@
-<html>
-<head>
-<title> </title>
+
 <script type="text/javascript" src="http://localhost/codeigniter/jquery-1.9.1.js"></script>
 <script type="text/javascript" >
 $(document).ready(function()
@@ -66,7 +64,9 @@ $(".account").attr('id', '');
 
 			  <ul class="root">
 				
-
+				<li>
+	      				<a href="<?php echo base_url();?>teacher">Home</a>
+	    			</li>
 
 
 	    			<li>

@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Student Mark Chart </title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Add Student</title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 
@@ -12,24 +15,34 @@
 		
 			<li>
 				<label for="name">Name</label>
-				<input type="text" id="name" name="name"/>
+				<input type="text" id="name" value="<?php echo set_value('name');?>" name="name"/>
+				<?php echo form_error('name', '<div class="error">', '</div>'); ?>
 			</li>
 		
 			<li>
-				<label for="rollno">Roll No</label>
-				<input type="text" id="rollno" name="rollno"/>
+
+				<label for="school" value="<?php echo set_value('school');?>">School</label>
+				<?php 
+					echo '<select name="school">';
+					//echo '<option value="0">-- -- -- -</option>';
+					foreach ($query as $q){
+					echo '<option value="'.$q->scl_id.'">'.$q->scl_name.'</option>';
+					}
+					echo '</select>'
+				?>
+	
 			</li>
 			<li>
 			
 				<label for="grade"> Grade</label>
-				<input type="text" id="grade" name="grade"/>
+				<input type="text" id="grade" value="<?php echo set_value('grade');?>" name="grade"/>
+				<?php echo form_error('grade', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 				<label for="dob"> Date of Birth</label>
 				
 			</li>
 
-<link rel="stylesheet" type="text/css" href="http://localhost/codeigniter/datepickercontrol.css" />
 
 
 
@@ -45,6 +58,7 @@ Date:<input type="text" name="edit1" id="edit1" datepicker="tr" datepicker_forma
 	for($j=1;$j<=31;$j++)
 	{
       echo "<option>$j</option>";
+      
       
      }
 	
@@ -90,34 +104,38 @@ Date:<input type="text" name="edit1" id="edit1" datepicker="tr" datepicker_forma
 				<label for="gender_male">Male</label>
 				<input type="radio" id="gender_female" value="0" name="gender"  />
 				<label for="gender_female">Female</label>
-				
+				<?php echo form_error('gender', '<div class="error">', '</div>'); ?>
 			</li>
 			
 			<li>
 				<label for="fname">Father's Name</label>
-				<input type="text" id="fname" name="fname"/>
+				<input type="text" id="fname" value="<?php echo set_value('fname');?>"name="fname"/>
+				<?php echo form_error('fname', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 				<label for="mname">Mother's Name</label>
-				<input type="text" id="mname" name="mname"/>
+				<input type="text" id="mname" value="<?php echo set_value('mname');?>"name="mname"/>
+				<?php echo form_error('mname', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 				<label for="addtext">Address</label>
-				<textarea id="addtext" name="addtext"> </textarea>
+				<textarea id="addtext" name="addtext"> <?php echo set_value('addtext');?> </textarea>
+				<?php echo form_error('addtext', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 				<label for="landphone">Lanline No</label>
-				<input type="text" id="landphone" name="landphone"/>
+				<input type="text" id="landphone" name="landphone"value="<?php echo set_value('landphone');?>"/>
+				<?php echo form_error('landphone', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 				<label for="officephone">Office No</label>
 				<input type="text" id="officephone" name="officephone"/>
-
 			</li>
 			<li>
 			
 				<label for="mobile">Mobile No</label>
-				<input type="text" id="mobile" name="mobile"/>
+				<input type="text" id="mobile" name="mobile"value="<?php echo set_value('mobile');?>"/>
+				<?php echo form_error('mobile', '<div class="error">', '</div>'); ?>
 			</li>
 			<li>
 			

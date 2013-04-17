@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Enter Case Record</title>
 <?php $this->load->view('teacher/teacher_header.php');?>
 <?php $this->load->view('teacher/teacher_sidebar.php');?>
 	<div class="main_content">

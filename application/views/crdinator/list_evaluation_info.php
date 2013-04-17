@@ -1,12 +1,15 @@
+<html>
+<head>
+<title> Evaluvation Inforation</title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 <div class="main_content">
 <?php
 if($query1==0){echo '<h3> No Evaluation Record Found</h3>';}
- else if ($query2==0){echo '<h3> Evaluation Record Found </h3>';}
+ else if ($query2==0){echo '<h3> No Evaluation Record Found </h3>';}
 else
 {
-
+	
  echo '<table>';
  
  	
@@ -171,7 +174,8 @@ else
 		
 </li>
 */
-	}}
+	}
+}
 
 
 	

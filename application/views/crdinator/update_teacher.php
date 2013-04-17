@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Update Teacher Details </title>
 <?php $this->load->view('crdinator/coordinator_header.php');?>
 <?php $this->load->view('crdinator/coordinator_sidebar.php');?>
 	<div class="main_content">

@@ -1,3 +1,6 @@
+<html>
+<head>
+<title>Enter Student Evaluation</title>
 <?php $this->load->view('teacher/teacher_header.php');?>
 <?php $this->load->view('teacher/teacher_sidebar.php');?>
 
@@ -27,7 +30,7 @@
 <li>
 
 			
-			<label for="date"> Date:</label>
+			<!--<label for="date"> Date:</label>
 			<select id="l1" name="l1">
 	<?php	
 	for($j=1;$j<=31;$j++)
@@ -58,6 +61,7 @@
 	  ?>        
       </select>
   </li>
+-->
 
 <br>
 <li>
@@ -82,10 +86,10 @@
 <br>
 <li>
 </li>
-<li>
+<li> 
 				<label for="reading_det">Comments:</label>
-				<textarea rows="4" cols="50" name="reading_det" wrap="physical"></textarea><br />
-
+				<textarea rows="4" cols="50" name="reading_det" wrap="physical"><?php echo set_value('reading_det');?></textarea><br />
+				<?php echo form_error('reading_det', '<div class="error">', '</div>'); ?>
 			</li>
 
 
@@ -114,7 +118,8 @@
 </li>
 			<li>
 				<label for="reading_compre_det">Comments:</label>
-				<textarea rows="4" cols="50" name="reading_compre_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="reading_compre_det" wrap="physical"><?php echo set_value('reading_compre_det');?></textarea><br />
+				<?php echo form_error('reading_compre_det', '<div class="error">', '</div>'); ?>
 
 			</li>
 			
@@ -145,7 +150,8 @@
 </li>
 		<li>
 				<label for="spelling_det">Comments:</label>
-				<textarea rows="4" cols="50" name="spelling_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="spelling_det" wrap="physical"><?php echo set_value('spelling_det');?></textarea><br />
+				<?php echo form_error('spelling_det', '<div class="error">', '</div>'); ?>
 
 			</li>		
 
@@ -175,7 +181,8 @@
 </li>
 			<li>
 				<label for="handwriting_det">Comments:</label>
-				<textarea rows="4" cols="50" name="handwriting_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="handwriting_det" wrap="physical"><?php echo set_value('handwriting_det');?></textarea><br />
+				<?php echo form_error('handwriting_det', '<div class="error">', '</div>'); ?>
 
 			</li>
 </li>
@@ -204,7 +211,8 @@
 
 				<li>
 				<label for="written_det">Comments:</label>
-				<textarea rows="4" cols="50" name="written_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="written_det" wrap="physical"><?php echo set_value('written_det');?></textarea><br />
+				<?php echo form_error('written_det', '<div class="error">', '</div>'); ?>
 
 			</li>
 </li>
@@ -233,7 +241,8 @@
 
 <li>
 				<label for="arith_math_det">Comments:</label>
-				<textarea rows="4" cols="50" name="arith_math_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="arith_math_det" wrap="physical"><?php echo set_value('arith_math_det');?></textarea><br />
+				<?php echo form_error('arith_math_det', '<div class="error">', '</div>'); ?>
 
 			</li>
 
@@ -264,18 +273,21 @@
 </li>
 <li>
 				<label for="sub_content_det">Comments:</label>
-				<textarea rows="4" cols="50" name="sub_content_det" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="sub_content_det" wrap="physical"><?php echo set_value('sub_content_det');?></textarea><br />
+				<?php echo form_error('sub_content_det', '<div class="error">', '</div>'); ?>
 
 			</li>
 <br>
 <li>
 	<label for="remarks">Remarks:</label>
-	<textarea rows="4" cols="50" name="remarks" wrap="physical"></textarea>:<br />
+	<textarea rows="4" cols="50" name="remarks" wrap="physical"><?php echo set_value('reading_det');?></textarea>:<br />
+	<?php echo form_error('reading_det', '<div class="error">', '</div>'); ?>
 
 </li>
 <li>
 				<label for="class_support">Class support</label>
-				<textarea rows="4" cols="50" name="class_support" wrap="physical"></textarea><br />
+				<textarea rows="4" cols="50" name="class_support" wrap="physical"><?php echo set_value('class_support');?></textarea><br />
+				<?php echo form_error('class_support', '<div class="error">', '</div>'); ?>
 
 			<!--</li>
 			<li>

@@ -10,26 +10,31 @@
 	<div class="title_bar">
 		<div class="title_image">
 		</div>
-		<?php echo validation_errors(); ?>
+		
 	</div>
 	
 	
 	<form class="form-1" method="post" action="<?php echo base_url()?>login/usr_lgin">
-		<?php echo validation_errors(); ?>
+		
 
 					<p class="field">
-						<input type="text" name="name" placeholder="Username or email">
-						<i class="icon-user icon-large"></i>
+						<input type="text" name="name" value="<?php echo set_value('name');?>"placeholder="Username">
+						<?php echo form_error('name', '<div class="error">', '</div>'); ?>
+						
 					</p>
 						<p class="field">
-							<input type="password" name="password" placeholder="Password">
-							<i class="icon-lock icon-large"></i>
+							<input type="password" name="password" placeholder="Password" value="<?php echo set_value('password'); ?>">
+						<?php echo form_error('password', '<div class="error">', '</div>'); ?>
+							
 					</p>
 					<p class="submit">
-						<button type="submit" name="submit"><i class="icon-arrow-right icon-large"></i></button>
+						<button type="submit" name="submit"></button>
 					</p>
+				<div class="error">
+				
+				</div>
 				</form>
-	
+				
 
  </body>
  </html>

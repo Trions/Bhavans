@@ -10,13 +10,13 @@ class Login extends CI_Controller{
 	
 	function usr_lgin(){
 	
-		//$this->form_validation->set_rules('name','User Name','required');
-		//$this->form_validation->set_rules('password','Password','required');
+		$this->form_validation->set_rules('name','User Name','required');
+		$this->form_validation->set_rules('password','Password','required');
 		//$this->form_validation->set_rules('email','Email','required|valid_email');
 		
-		//if($this->form_validation->run()==false)
-		//	redirect('login');
-		//else{
+		if($this->form_validation->run()==false)
+			$this->load->view('login_view');
+		else{
 			$this->load->model('usr_model');
 			$query=$this->usr_model->usr_login();
 			 
@@ -24,16 +24,12 @@ class Login extends CI_Controller{
 			
 			if($query){
 					$this->load->library('session');
-					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id'],'user_cat'=> $query['lgin_cat'], 'logged_in' => TRUE);
+					$u_data=array('user_name'=>$this->input->post('name'),'user_id' => $query['lgin_id'],'user_cat'=> $query['lgin_cat'], 'logged_in' => TRUE,'login_category'=>$query['lgin_cat']);
 					$this->session->set_userdata($u_data);
 					if($query['lgin_cat']==1)
 						redirect('coordinator');
 					else if($query['lgin_cat']==2)
 						redirect('teacher');
-					else if($query['lgin_cat']==3)
-						redirect('parent');
-					else if($query['lgin_cat']==4)
-						redirect('remedial_staff');
 					else{
 						////
 						//use template for showing the errors
@@ -44,7 +40,11 @@ class Login extends CI_Controller{
 
 					}
 			}
-		//}
+			else
+			{
+				redirect('login');
+			}
+		}
 	}
 	
 	function index(){

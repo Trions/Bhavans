@@ -18,7 +18,7 @@ if($query==0){echo '<h3> No Students to Display </h3>';}
 		echo '<tr>';
 		echo '<td><h4>';
 		
-		echo anchor('/coordinator/list_caserecord_info/'.$q->stu_name);
+		echo anchor('/coordinator/list_caserecord_info/'.$q->s_name);
 		echo '</tr>';
 		
 		

@@ -19,11 +19,30 @@ class Model_teacher extends CI_Model{
 		$this->db->insert('tbl_stu_acdmic_perfo',$mark_info);
 	}
 	
+	function mark_check($ass_type,$id){
+		$query = $this->db->get_where('tbl_stu_acdmic_perfo', array('stu_id' => $id, 'fa'=>$ass_type ));
+		if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+				if($data == 0){
+					return 0;
+				}
+				else{
+					return 1;
+				}
+		}
+	}
+	
+	
 	function register_evaluation($evaluation_info){
 		$this->db->insert('tbl_coun_inst_obj_act',$evaluation_info);
 	}
 	function register_caserecord($report_info){
 		$this->db->insert('tbl_caserecord_special',$report_info);
+	}
+	function register_daily_report($daily_info){
+		$this->db->insert('tbl_daily_report',$daily_info);
 	}
 	
 	function add_referral_get(){
@@ -47,6 +66,16 @@ class Model_teacher extends CI_Model{
 	}
 	
 	function add_mark_get(){
+		$query = $this->db->query('SELECT stu_id,stu_name,stu_grade FROM tbl_student_registration');
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+	}
+
+	function add_daily_report_get(){
 		$query = $this->db->query('SELECT stu_id,stu_name,stu_grade FROM tbl_student_registration');
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){

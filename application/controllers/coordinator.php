@@ -17,83 +17,136 @@ class Coordinator extends CI_Controller{
 		}
 	}
 	
-	function sign_out(){
+	function sign_out()
+	{
 		$this->session->sess_destroy();
 		redirect('login');
 	}
-	
+	function user_exsist($str)
+	{
+		$this->load->model('model_coordinator');
+		
+		if($this->model_coordinator->check_student($str))
+		{
+			return true;
+		}
+		else
+		{
+			$this->form_validation->set_message('user_exsist','%s already exists');
+			return false;
+			
+		}
+	}
 	function register_student(){
 	
-		if($this->session->userdata('logged_in')){	
-		
-			$this->form_validation->set_rules('','','');		
-			$stu_info['stu_school']=$this->input->post("school");
-			$stu_info['stu_name']=$this->input->post("name");
-			$stu_info['stu_grade']=$this->input->post("grade");
-		
-			//$insertdate =$this->input->post("dob");
-			$dat=$_POST['l1'];
-			$mnth=$_POST['l2'];
-			$yr=$_POST['l3'];
-			$dt=$yr."/".$mnth."/".$dat;			
-
-
-			//$ins = date($insertdate);
-			$stu_info['stu_dob']=$dt;//$this->input->post("dob");
-			$stu_info['stu_gender']=$this->input->post("gender");
-			$stu_info['stu_father_name']=$this->input->post("fname");
-			$stu_info['stu_mother_name']=$this->input->post("mname");
-			$stu_info['stu_address']=$this->input->post("addtext");
-			$stu_info['stu_ph_res']=$this->input->post("landphone");
-			$stu_info['stu_ph_off']=$this->input->post("officephone");
-			$stu_info['stu_ph_mob']=$this->input->post("mobile");
-			$this->load->model('model_coordinator');
-			$this->model_coordinator->register_student($stu_info);
-			//$this->load->view('crdinator/reg_sucessfull',$stu_info);
-			redirect('coordinator/add_student');
+		if($this->session->userdata('logged_in')){
+			$this->form_validation->set_rules('school','grade','required');	
+			$this->form_validation->set_rules('name','Student Name','trim|required|xss_clean|callback_user_exsist');
+			$this->form_validation->set_rules('grade','Grade','required|is_natural');
+			$this->form_validation->set_rules('gender','Gender','required');
+			$this->form_validation->set_rules('fname','Father\'s Name','trim|required|xss_clean');
+			$this->form_validation->set_rules('mname','Mother\'s Name','trim|required|xss_clean');
+			$this->form_validation->set_rules('addtext','Address','trim|required|xss_clean');
+			$this->form_validation->set_rules('landphone','Landphone No','trim|required|min_length[11]|xss_clean|is_natural');
+			$this->form_validation->set_rules('mobile','Mobile No','trim|required|min_length[10]|xss_clean|is_natural');		
+			if($this->form_validation->run()==false)
+			{
+				$this->load->model('model_coordinator');
+				$data['query']= $this->model_coordinator->add_teacher_get(); //to get the school name
+				$this->load->view('crdinator/add_stu.php',$data);
+			
+			}
+			else
+			{
+				$query=$this->usr_model->usr_login();
+				$stu_info['stu_school']=$this->input->post("school");
+				$stu_info['stu_name']=$this->input->post("name");
+				$stu_info['stu_grade']=$this->input->post("grade");
+				$dat=$_POST['l1'];
+				$mnth=$_POST['l2'];
+				$yr=$_POST['l3'];
+				$dt=$yr."/".$mnth."/".$dat;			
+				$stu_info['stu_dob']=$dt;//$this->input->post("dob");
+				$stu_info['stu_gender']=$this->input->post("gender");
+				$stu_info['stu_father_name']=$this->input->post("fname");
+				$stu_info['stu_mother_name']=$this->input->post("mname");
+				$stu_info['stu_-qqress']=$this->input->post("addtext");
+				$stu_info['stu_ph_res']=$this->input->post("landphone");
+				$stu_info['stu_ph_off']=$this->input->post("officephone");
+				$stu_info['stu_ph_mob']=$this->input->post("mobile");
+				$this->load->model('model_coordinator');
+				$this->model_coordinator->register_student($stu_info);
+				//$this->load->view('crdinator/reg_sucessfull',$stu_info);
+				redirect('coordinator/add_student');
+			}	
 		}	
 	}
 	
 		
 	function register_teacher(){
-		if($this->session->userdata('logged_in')){
 	
-		$teacher_info['teacher_first_name']=$this->input->post("fname");
-		//$teacher_info['teacher_last_name']=$this->input->post("lname");
-		$teacher_info['teacher_gender']=$this->input->post("gender");
-		$teacher_info['teacher_school']=$this->input->post("school");
-		$dat=$_POST['l1'];
-			$mnth=$_POST['l2'];
-			$yr=$_POST['l3'];
-			$dt=$yr."/".$mnth."/".$dat;			
-
-
-			//$ins = date($insertdate);
-			$teacher_info['teacher_dob']=$dt;//$thi
-		$teacher_info['teacher_address']=$this->input->post("address");
-		$teacher_info['teacher_nationality']=$this->input->post("nationality");
-		//$teacher_info['teacher_photo']=$this->input->post("photo");
-		$teacher_info['teacher_phone']=$this->input->post("phone");
-		$teacher_info['teacher_email']=$this->input->post("email");
+		if($this->session->userdata('logged_in'))
+		{
+	
+			$this->form_validation->set_rules('fname','Name','required|xss_clean|trim');
+			$this->form_validation->set_rules('gender','Gender','required');
+			$this->form_validation->set_rules('address','Address','required|xss_clean|trim');
+			$this->form_validation->set_rules('phone','Phone Number','required|is_natural|min_length[10]|trim');
+			$this->form_validation->set_rules('email','Email','valid_email');
+			if($this->form_validation->run()==false)
+			{
+				$this->load->model('model_coordinator');
+				$data['query']= $this->model_coordinator->add_teacher_get();
+				$this->load->view('crdinator/add_teacher.php',$data);
+				
+			}
+			else
+			{
+				
+				//$this->load->view('coordinator/add_teacher');
+				$teacher_info['teacher_first_name']=$this->input->post("fname");
+				//$teacher_info['teacher_last_name']=$this->input->post("lname");
+				$teacher_info['teacher_gender']=$this->input->post("gender");
+				$teacher_info['teacher_school']=$this->input->post("school");
+				$dat=$_POST['l1'];
+				$mnth=$_POST['l2'];
+				$yr=$_POST['l3'];
+				$dt=$yr."/".$mnth."/".$dat;			
+				//$ins = date($insertdate);
+				$teacher_info['teacher_dob']=$dt;//$thi
+				$teacher_info['teacher_address']=$this->input->post("address");
+				$teacher_info['teacher_nationality']=$this->input->post("nationality");
+				//$teacher_info['teacher_photo']=$this->input->post("photo");
+				$teacher_info['teacher_phone']=$this->input->post("phone");
+				$teacher_info['teacher_email']=$this->input->post("email");
 		
-		$this->load->model('model_coordinator');
-		$this->model_coordinator->register_teacher($teacher_info);
-
-		echo "<script>alert('Updated...')";
-		redirect('coordinator/add_teacher');
-
-	}
+				$this->load->model('model_coordinator');
+				$this->model_coordinator->register_teacher($teacher_info);
+			
+				redirect('coordinator/add_teacher');
+			}
+		}
 	}
 	
 	function register_school(){
 		if($this->session->userdata('logged_in')){	
-		$school_info['scl_name']=$this->input->post("school_name");
-		$school_info['scl_ph']=$this->input->post("phone");
-		$school_info['scl_add']=$this->input->post("add");
+		$this->form_validation->set_rules('name','School Name','required|xss_clean|trim');
+		$this->form_validation->set_rules('phone','Phone','is_natural|required|trim');
+		$this->form_validation->set_rules('add','Address','required|trim|xss_clean');
+		if($this->form_validation->run())
+		{
+			$school_info['scl_name']=$this->input->post("school_name");
+			$school_info['scl_ph']=$this->input->post("phone");
+			$school_info['scl_add']=$this->input->post("add");
 		
-		$this->load->model('model_coordinator');
-		$this->model_coordinator->register_school($school_info);
-		redirect('coordinator/add_school');
+			$this->load->model('model_coordinator');
+			$this->model_coordinator->register_school($school_info);
+			redirect('crdinator/add_school');
+		}
+		else
+		{
+			$this->load->view('crdinator/add_school');
+		}
 		
 	}
 	}
@@ -371,11 +424,29 @@ class Coordinator extends CI_Controller{
 		$this->load->view('crdinator/list_caserecord_info',$data);
 	}
 	}
-	function list_evaluation_info($id){
+	function list_daily_report($id){
+	if($this->session->userdata('logged_in')){
 		$this->load->model('model_coordinator');
-		$data['query1']=$this->model_coordinator->list_evaluation_info($id);
+		
+		$data['query1']=$this->model_coordinator->list_daily_report($id);
+		$data['query2']=$this->model_coordinator->list_student_info($id);
+				
+		$this->load->view('crdinator/list_daily_report',$data);
+	}
+	}
+	function list_evaluation_info($id,$date){
+		$this->load->model('model_coordinator');
+		$data['query1']=$this->model_coordinator->list_evaluation_info($id,$date);
 		$data['query2']=$this->model_coordinator->list_student_info($id);		
 		$this->load->view('crdinator/list_evaluation_info',$data);
+		
+		
+	}
+	function list_evaluation_monthly($id){
+		$this->load->model('model_coordinator');
+		$data['query']=$this->model_coordinator->list_evaluation_monthly($id);
+				
+		$this->load->view('crdinator/list_evaluation_monthly',$data);
 	}
 }
 

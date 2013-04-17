@@ -3,6 +3,21 @@
 		function __construct(){
 			parent::__construct();
 		}
+		function check_student($str)
+		{
+			$this->db->select('stu_id');
+			$this->db->from('tbl_student_registration');
+			$this->db->where('stu_name', $str); 
+			$query = $this->db->get();
+			if($query->num_rows > 0)
+			{
+				return false;	
+			}
+			else
+			{
+				return true;
+			}
+		}
 		function register_teacher($teacher_info){
 			
 			//Inserting the teacher details to database
@@ -249,9 +264,33 @@
 			return $data;
 			}		
 		}
-		function list_evaluation_info($id){
+		function list_evaluation_info($id,$date){
+			//echo $id;
+			//echo $date;
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_coun_inst_obj_act', array('stu_id'=>$id,'date' => $date));
+				//echo $date;
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+		function list_evaluation_monthly($id){
 			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
 			$query = $this->db->get_where('tbl_coun_inst_obj_act', array('stu_id' => $id));
+			if($query->num_rows > 0){
+				foreach($query->result() as $row){
+					$data[] = $row;
+				}
+			return $data;
+			}
+		}
+
+		function list_daily_report($id){
+			//$query = $this->db->query('SELECT * FROM tbl_rem_referral where student_name="kokk"');
+			$query = $this->db->get_where('tbl_daily_report', array('stu_id' => $id));
 			if($query->num_rows > 0){
 				foreach($query->result() as $row){
 					$data[] = $row;
